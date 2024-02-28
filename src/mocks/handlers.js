@@ -7,11 +7,6 @@ export const handlers= [
         
         { id: 1,message: 'hello john' },
          { id: 2, message: 'hello lorem' },
-         { id: 3,message: 'hello john' },
-         { id: 4, message: 'hello lorem' },
-         { id: 5,message: 'hello john' },
-         { id: 6, message: 'hello lorem' },
-         { id: 7, message: 'hello lorem' }
         
         
         
