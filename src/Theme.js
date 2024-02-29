@@ -96,7 +96,10 @@ body{
 }
 
 /* heading typogaphy */
+h1 , h2 , h3 , h4 , h5 , h6 {
+    color: ${props=>props.theme.colors.primary.base}
 
+}
 h1{
     font-size: 2.488rem;
     font-weight: 700;

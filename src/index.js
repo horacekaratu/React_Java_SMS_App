@@ -7,6 +7,8 @@ import { setupWorker } from 'msw';
 import { handlers } from './mocks/handlers';
 import { ThemeProvider, styled } from 'styled-components';
 import { GlobalStyles, Theme} from './Theme';
+import { BrowserRouter, Router } from 'react-router-dom';
+import { AppRoutes, Routes } from './components/AppRoutes';
 const Container=styled.div`
 margin: 0 80px;
 padding: 0px;
@@ -15,11 +17,14 @@ const worker= setupWorker(...handlers)
 worker.start()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+ 
   <ThemeProvider theme={Theme}>
   <GlobalStyles/>
   <React.StrictMode>
   <Container>
-    <App />
+    <BrowserRouter>
+    <AppRoutes/>
+    </BrowserRouter>
     </Container>
   </React.StrictMode>
   </ThemeProvider>
