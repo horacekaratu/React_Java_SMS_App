@@ -1,13 +1,25 @@
 import { useEffect, useState } from "react";
 import { Outlet, Route, Routes } from "react-router";
-import { styled } from "styled-components";
+import { styled, css } from "styled-components";
+import { Conversation, ThreadListContainer } from "./Conversation";
+
+const ThreadsContainer=styled(ThreadListContainer)`
+box-shadow: 4px 0px 0px ${props=>props.theme.colors.primary.desaturated} ;
+
+/* text-align: center; */
+`
 export const BaseThreadItem = styled.li`
   /* box model styling--basic */
+  border-radius: var(--base-point);
+  background-color: ${props=>props.theme.colors.primary.base} ;
+  color: ${props=>props.theme.colors.lightNeutral.light} ;
   max-width: 100%;
   padding: 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: unset 0 2px 2px rgba(0, 0, 0, 0.1);
   margin-bottom: 0.5rem;
+  margin-left: 16px;
+  margin-right: 16px ;
 
   cursor: pointer;
   /* list speciific styling  */
@@ -20,6 +32,7 @@ export const ThreadItem = styled(BaseThreadItem)`
   &:hover {
     background-color: ${(props) => props.theme.colors.primary.saturated};
     color: ${(props) => props.theme.colors.lightNeutral.light};
+    transform: scale(1.03);
   }
 
   &:active {
@@ -31,10 +44,27 @@ export const ThreadItem = styled(BaseThreadItem)`
   transition: background-color 0.3s ease;
 `;
 export const ConversationThreadItem=styled(BaseThreadItem)`
-display: flex;
+
+display: flex;  
 flex-direction: row;
 justify-content: space-between;
-max-width: 100%;
+max-width: 40%;
+background-color: ${props=>props.theme.colors.lightNeutral.light} ;
+color: ${props=>props.theme.colors.darkNeutral.dark} ;
+box-shadow: 1px 2px 5px ${props=>props.theme.colors.primary.desaturated};
+
+
+&:hover{
+  button{
+    visibility: visible;
+  }
+}
+
+${props=>props.$incomming && css`
+margin-left: ${props => props.$incomming ? 'auto' : '50%'};
+
+`}
+
 
 `
 const ThreadTitle = styled.h2`
@@ -95,13 +125,13 @@ export const ThreadList = ({ handleOnClick }) => {
         <>
           <ThreadSubTitle>Threads</ThreadSubTitle>
 
-          <ul>
-            {messages.map((msg) => (
-              <ThreadItem key={msg.id} onClick={() => handleOnClick(msg.id)}>
+          <ThreadsContainer>
+            {messages.map((msg, index) => (
+              <ThreadItem key={index} onClick={() => handleOnClick(msg.id)}>
                 {msg.message}
               </ThreadItem>
             ))}
-          </ul>
+            </ThreadsContainer>
         </>
       )}
     </div>

@@ -4,7 +4,7 @@ import { ErrorMessage, ThreadList } from "./components/ThreadList";
 import { ErrorBoundary } from "react-error-boundary";
 import { styled } from "styled-components";
 import { Conversation } from "./components/Conversation";
-import { Outlet, Route, Routes, useNavigate } from "react-router";
+import { Outlet, Route, Routes, useNavigate, useRoutes } from "react-router";
 import { Link } from "react-router-dom";
 
 const AppContainer=styled.div`
@@ -13,6 +13,11 @@ justify-content: space-between;
 `
 const ThreadsContainer=styled.span`
 width: 33%;
+`
+const ConversationContainer=styled.span`
+margin-top: 72px;
+padding:  16px;
+width: 77%;
 `
 const ErrorContainer=styled.div`
 padding: calc(var(--base-point ) * 2);
@@ -37,7 +42,14 @@ cursor: pointer;
 
 `;
 export const ConversationButton=styled(ErrorButton)`
-margin-left: var(--base-point)
+margin-left: var(--base-point);
+padding: calc(var(--base-point)* 1) var(--base-point);
+visibility: hidden;
+
+
+
+
+
 `
 const googleFontsUrl =
   "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap";
@@ -64,13 +76,35 @@ const googleFontsUrl =
 };
 
 
+export const handleOnDelete=(id)=>{
+console.log("deleting "+id)
+}
+export const handleOnShowDetail=(message)=>{
+  console.log("showing detail ")
+  console.log(message)
+}
+function App(props) {
 
-function App() {
+const routes=useRoutes([
+{
+  path:"conversations/:id",
+  element: <Conversation
+  showDetailHandler={handleOnShowDetail}
+   deleteHandler={handleOnDelete}  />
+}
+])
   const[selectedThread,setSelectedThread]=useState()
   const navigate=useNavigate()
+  
   const handleOnClick = (id) => {
-    /* setSelectedThread(messages) */
-    navigate(`/conversations/${id}`,{state:{messages:messages, userDetails:userDetails}})
+    
+    navigate(`/conversations/${id}`, {
+      
+      state: {
+        messages,
+        userDetails,
+      },
+    });
     
   };
   return (
@@ -82,7 +116,14 @@ function App() {
       <ThreadList handleOnClick={handleOnClick} />
       </ErrorBoundary>
       </ThreadsContainer>
+      <ConversationContainer>
+      <ErrorBoundary FallbackComponent={MessageThreadListErrorFallback}>
+      
       <Outlet/>
+      {routes}
+      </ErrorBoundary>
+      </ConversationContainer>
+      
       </AppContainer>
                                                                                                               
     </>
@@ -95,20 +136,56 @@ export default App;
 export const messages = {
   1: {
     id: 1,
-    receipient: 1,
+    incomming: false,
     sender: "alexander alekhine",
     text: "wanna play some chess",
   },
-  2: { id: 2, receipient: 1, sender: "Bortvinnick", text: "Nyet" },
+  2: { id: 2, incomming: true, sender: "Bortvinnick", text: "Nyet" },
   3: {
     id: 3,
-    receipient: 1,
+    incomming:false,
+    sender: "Topalov",
+    text: "I just won a world championship",
+  },
+  4: {
+    id: 4,
+    incomming:false,
+    sender: "Topalov",
+    text: "I just won a world championship",
+  },
+  5: {
+    id: 5,
+    incomming:true,
+    sender: "Topalov",
+    text: "I just won a world championship",
+  },
+  6: {
+    id: 6,
+    incomming:false,
+    sender: "Topalov",
+    text: "I just won a world championship",
+  },
+  7: {
+    id: 7,
+    incomming:false,
+    sender: "Topalov",
+    text: "I just won a world championship",
+  },
+  8: {
+    id: 8,
+    incomming:true,
+    sender: "Topalov",
+    text: "I just won a world championship",
+  },
+  9: {
+    id: 9,
+    incomming:false,
     sender: "Topalov",
     text: "I just won a world championship",
   },
 };
 
 export const userDetails = {
-  name: "Davis Shuma",
+  name: "Alexander Alekhine",
   icon: "file:///home/hashicorp/Downloads/d8b291c607044d0985f97f41a9ca27a9.png",
 };
