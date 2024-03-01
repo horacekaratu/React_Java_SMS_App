@@ -1,4 +1,6 @@
 import { createGlobalStyle } from "styled-components"
+export const googleFontsUrl =
+"https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap";
 
 export const Theme={
 
@@ -82,25 +84,7 @@ colors:{
 // Global  Styles
 export const GlobalStyles=createGlobalStyle`
 
-::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: ${(props) => props.theme.colors.primary.background};
-  }
-  ::-webkit-scrollbar-thumb {
-    background: ${(props) => props.theme.colors.primary.base};
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: ${(props) => props.theme.colors.primary.saturated};
-  }
-  ::-webkit-scrollbar-thumb:active {
-    background-color: ${(props) => props.theme.colors.primary.dark}; /* Color of the scrollbar thumb when active (clicked) */
-  }
-  ::-webkit-scrollbar-track {
-    border-radius: 60px; /* Border radius of the scrollbar track */
-  }
+
 
 :root{
     --base-point:8px;
@@ -206,7 +190,26 @@ figcaption{
    /* a good value to play around with for space */
 }
 
-
+/* Web Kit Styling  */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: ${(props) => props.theme.colors.primary.background};
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${(props) => props.theme.colors.primary.base};
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${(props) => props.theme.colors.primary.saturated};
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background-color: ${(props) => props.theme.colors.primary.dark}; /* Color of the scrollbar thumb when active (clicked) */
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 60px; /* Border radius of the scrollbar track */
+  }
 
 
 `

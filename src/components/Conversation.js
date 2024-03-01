@@ -1,49 +1,58 @@
-import { styled, useTheme } from "styled-components"
-import { ConversationThreadItem } from "./ThreadList"
-import { ConversationButton } from "../App"
+import { css, styled, useTheme } from "styled-components"
 import { useLocation } from "react-router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleInfo, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { BaseThreadItem } from "./styled/ThreadItem"
+import { ScollbarWrapper } from "./styled/ScrollBarWrapper"
+import { Title } from "./styled/Title"
+import { ProfilePicture } from "./styled/ProfilePicture"
+import { ErrorButton } from "./error-handling/ErrorFallBack"
 
-const StyledScollbarWrapper = styled.div`
-  overflow-y: auto; /* Enable vertical scrolling for content */
-  max-height: 100%; /* Allow content to take full height of the message box */
-  /* Style the scrollbar */
-  
-  ::-webkit-scrollbar {
-    width: 8px;
+export const ConversationButton=styled(ErrorButton)`
+margin-left: var(--base-point);
+padding: calc(var(--base-point)* 1) var(--base-point);
+visibility: hidden;
+
+${props=>props.$error && css`
+background-color: ${(props)=>props.theme.colors.contextual.error} ;
+`}
+
+`
+
+export const ConversationThreadItem=styled(BaseThreadItem)`
+
+display: flex;  
+flex-direction: row;
+justify-content: space-between;
+max-width: 40%;
+background-color: ${props=>props.theme.colors.lightNeutral.light} ;
+color: ${props=>props.theme.colors.darkNeutral.dark} ;
+box-shadow: 1px 2px 5px ${props=>props.theme.colors.primary.desaturated};
+
+
+&:hover{
+  button{
+    visibility: visible;
   }
-  ::-webkit-scrollbar-track {
-    background: ${(props) => props.theme.colors.primary.background};
-  }
-  ::-webkit-scrollbar-thumb {
-    background: ${(props) => props.theme.colors.primary.base};
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: ${(props) => props.theme.colors.primary.saturated};
-  }
-  ::-webkit-scrollbar-thumb:active {
-    background-color: ${(props) => props.theme.colors.primary.dark}; /* Color of the scrollbar thumb when active (clicked) */
-  }
-  ::-webkit-scrollbar-track {
-    border-radius: 60px; /* Border radius of the scrollbar track */
-  }
-`;
+}
+
+${props=>props.$incomming && css`
+margin-left: ${props => props.$incomming ? 'auto' : '50%'};
+
+`}
+
+
+`
+
 const AlignmentContainer=styled.div`
 `
-const ConversationTitle=styled.div`
-margin-bottom: calc(var(--base-point)*2);
-display: flex;
-justify-content: space-between;
-background-color:  ${(props) => props.theme.colors.primary.background};
-border-radius: var(--base-point);
-padding: 16px;
+const ConversationTitle=styled(Title)`
 h3{
     color:  ${(props) => props.theme.colors.primary.dark};
 }
-
 `
+
+
 export const ThreadListContainer=styled.ul`
 max-height: 59vh;
 overflow-x: auto;
@@ -54,12 +63,7 @@ const ButtonStack=styled.span`
 
 `
 
-const ProfilePicture=styled.img`
-width: 70px;
-height: 70px;
-border-radius: 50%;
 
-`
 
 export const Conversation=({deleteHandler,showDetailHandler})=>{
   const theme=useTheme()
@@ -82,7 +86,7 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
          <h3>{userDetails.name}</h3>
          
          </ConversationTitle>
-<StyledScollbarWrapper>
+<ScollbarWrapper>
          <ThreadListContainer>
         {messages && messages.map((msg,index)=>{
           console.log(msg)
@@ -115,7 +119,7 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
         })}
        
         </ThreadListContainer>
-        </StyledScollbarWrapper>
+        </ScollbarWrapper>
 
         </>
     )
