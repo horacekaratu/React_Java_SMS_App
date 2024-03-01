@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { ErrorMessage, ThreadList } from "./components/ThreadList";
 import { ErrorBoundary } from "react-error-boundary";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { Conversation } from "./components/Conversation";
 import { Outlet, Route, Routes, useNavigate, useRoutes } from "react-router";
 import { Link } from "react-router-dom";
@@ -46,6 +46,9 @@ margin-left: var(--base-point);
 padding: calc(var(--base-point)* 1) var(--base-point);
 visibility: hidden;
 
+${props=>props.$error && css`
+background-color: ${(props)=>props.theme.colors.contextual.error} ;
+`}
 
 
 
@@ -86,6 +89,7 @@ export const handleOnShowDetail=(message)=>{
 function App(props) {
 
 const routes=useRoutes([
+  // {index:true,path:"/", element:()=>(<>No messages selected</>)},
 {
   path:"conversations/:id",
   element: <Conversation
@@ -140,48 +144,48 @@ export const messages = {
     sender: "alexander alekhine",
     text: "wanna play some chess",
   },
-  2: { id: 2, incomming: true, sender: "Bortvinnick", text: "Nyet" },
+  2: { id: 2, incomming: true, sender: "Bortvinnick", text: " alitema moal" },
   3: {
     id: 3,
     incomming:false,
     sender: "Topalov",
-    text: "I just won a world championship",
+    text: "aghainst fischer",
   },
   4: {
     id: 4,
     incomming:false,
     sender: "Topalov",
-    text: "I just won a world championship",
+    text: "topolov",
   },
   5: {
     id: 5,
     incomming:true,
     sender: "Topalov",
-    text: "I just won a world championship",
+    text: "hello ",
   },
   6: {
     id: 6,
     incomming:false,
     sender: "Topalov",
-    text: "I just won a world championship",
+    text: "engima doctrine",
   },
   7: {
     id: 7,
     incomming:false,
     sender: "Topalov",
-    text: "I just won a world championship",
+    text: "need a visa",
   },
   8: {
     id: 8,
     incomming:true,
     sender: "Topalov",
-    text: "I just won a world championship",
+    text: "hey there",
   },
   9: {
     id: 9,
     incomming:false,
     sender: "Topalov",
-    text: "I just won a world championship",
+    text: "type quick",
   },
 };
 

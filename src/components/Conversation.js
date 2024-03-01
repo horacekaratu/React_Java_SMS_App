@@ -1,14 +1,10 @@
-import { styled } from "styled-components"
+import { styled, useTheme } from "styled-components"
 import { ConversationThreadItem } from "./ThreadList"
 import { ConversationButton } from "../App"
 import { useLocation } from "react-router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleInfo, faTrash } from "@fortawesome/free-solid-svg-icons"
-import { useEffect } from "react"
 
-// 1. Handle test problems with styled componetn inheritance
-// 6. Recreate the test after refactoring and integration 
-// 7. push to git 
 const StyledScollbarWrapper = styled.div`
   overflow-y: auto; /* Enable vertical scrolling for content */
   max-height: 100%; /* Allow content to take full height of the message box */
@@ -49,7 +45,7 @@ h3{
 
 `
 export const ThreadListContainer=styled.ul`
-max-height: 62vh;
+max-height: 59vh;
 overflow-x: auto;
 
 `
@@ -66,6 +62,7 @@ border-radius: 50%;
 `
 
 export const Conversation=({deleteHandler,showDetailHandler})=>{
+  const theme=useTheme()
     const props=useLocation()
     const  messages=props.state.messages && Object.values(props.state.messages)
     const userDetails=props.state.userDetails && props.state.userDetails
@@ -79,7 +76,7 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
        
         <ConversationTitle>
         <ProfilePicture
-         src=""
+         src="/picture.png"
           alt="icon" data-testid="user-icon-testid"
           /> 
          <h3>{userDetails.name}</h3>
@@ -88,20 +85,28 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
 <StyledScollbarWrapper>
          <ThreadListContainer>
         {messages && messages.map((msg,index)=>{
+          console.log(msg)
             return (
+
                 <AlignmentContainer key={index}>
-                <ConversationThreadItem  $incomming={msg.incomming}>
+                <ConversationThreadItem  $incomming={msg.incomming}  >
+                
                 {msg.text}
-                <ButtonStack>
-                <ConversationButton onClick={()=>deleteHandler(msg.id)}>
-                
-                <FontAwesomeIcon  icon={faTrash} />
-                
-                </ConversationButton>
-                <ConversationButton onClick={()=>showDetailHandler(msg)}>
+                <ButtonStack data-testid="button">
+                <ConversationButton onClick={()=>showDetailHandler(msg)}
+                 data-testid={`show-detail-button-${msg.id}`}  
+               >
                 
                 <FontAwesomeIcon  icon={faCircleInfo} />
                 </ConversationButton>
+                <ConversationButton onClick={()=>deleteHandler(msg.id)}  $error
+                  data-testid={`delete-button-${msg.id}`}
+                 >
+                
+                <FontAwesomeIcon   icon={faTrash} />
+                
+                </ConversationButton>
+                
                 </ButtonStack>
                 </ConversationThreadItem>
                 </AlignmentContainer>

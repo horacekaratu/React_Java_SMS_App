@@ -1,8 +1,5 @@
 import { screen, render as rtlRender, waitFor, fireEvent } from "@testing-library/react"
 import { ThreadList } from "./ThreadList";
-import { click } from "@testing-library/user-event/dist/click";
-import { server } from "../setupTests";
-import { rest } from "msw";
 import { Theme } from "../Theme";
 import { ThemeProvider } from "styled-components";
 const render=(ui,options)=>{

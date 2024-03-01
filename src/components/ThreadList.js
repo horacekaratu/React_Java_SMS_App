@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Outlet, Route, Routes } from "react-router";
 import { styled, css } from "styled-components";
-import { Conversation, ThreadListContainer } from "./Conversation";
+import {  ThreadListContainer } from "./Conversation";
 
-const ThreadsContainer=styled(ThreadListContainer)`
+const ThreadsContainer=styled(props => <ThreadListContainer {...props}/>)`
 box-shadow: 4px 0px 0px ${props=>props.theme.colors.primary.desaturated} ;
 
 /* text-align: center; */
