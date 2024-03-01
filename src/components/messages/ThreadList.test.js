@@ -1,6 +1,6 @@
 import { screen, render as rtlRender, waitFor, fireEvent } from "@testing-library/react"
 import { ThreadList } from "./ThreadList";
-import { Theme } from "../Theme";
+import { Theme } from "../../Theme";
 import { ThemeProvider } from "styled-components";
 const render=(ui,options)=>{
 return rtlRender(ui,{

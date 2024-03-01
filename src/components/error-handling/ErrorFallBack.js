@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled, css } from "styled-components";
 
 const ErrorContainer=styled.div`
 padding: calc(var(--base-point ) * 2);
@@ -13,7 +13,7 @@ const ErrorDetail=styled.div`
 margin: calc( var(--base-point) *2 );
 `; 
 
-export const ErrorButton=styled.button`
+export const Button=styled.button`
 padding: calc(var(--base-point)* 2) var(--base-point);
 color: ${(props)=>props.theme.colors.lightNeutral.light};
 background-color: ${(props)=>props.theme.colors.primary.base};
@@ -22,6 +22,21 @@ border: none;
 cursor: pointer;
 
 `;
+export const DisappearingButton=styled(Button)`
+margin-left: var(--base-point);
+padding: calc(var(--base-point)* 1) var(--base-point);
+visibility: hidden;
+
+${props=>props.$error && css`
+background-color: ${(props)=>props.theme.colors.contextual.error} ;
+`}
+${props=>props.$light && css`
+background-color: ${(props)=>props.theme.colors.lightNeutral.light} ;
+color: ${(props)=>props.theme.colors.darkNeutral.dark} ;
+
+`}
+
+`
 
 export const ErrorFallback = ({ error, resetErrorBoundary }) => {
     return (
@@ -37,7 +52,7 @@ export const ErrorFallback = ({ error, resetErrorBoundary }) => {
           <strong>Error Stacktrace: </strong> {error.stack.toString()}
         </ErrorDetail>
         <ErrorDetail>
-        <ErrorButton onClick={resetErrorBoundary}>Try Again</ErrorButton>
+        <Button onClick={resetErrorBoundary}>Try Again</Button>
         </ErrorDetail>
       </ErrorContainer>
      

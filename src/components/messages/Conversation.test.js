@@ -1,18 +1,9 @@
 import { fireEvent, render as rtlRender, screen, waitFor } from "@testing-library/react";
 import { Conversation } from "./Conversation";
-import { messages, userDetails } from "../App";
-import { Theme } from "../Theme";
+import { messages, userDetails } from "../../App";
+import { Theme } from "../../Theme";
 import { ThemeProvider } from "styled-components";
 import {  MemoryRouter} from "react-router-dom";
-// Mock the styled component from Conversation.js
-// Mock the styled components
-// Mock the styled components
-// jest.mock("styled-components", () => {
-//   const styled = (component) => component;
-//   return { ...jest.requireActual("styled-components"), styled };
-// });
-
-
 
 const initialState = {
   messages: messages,

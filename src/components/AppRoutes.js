@@ -1,7 +1,8 @@
 import { Routes, Route, useRoutes } from 'react-router-dom';
 import App, { handleOnDelete, handleOnShowDetail } from "../App"
-import { ThreadList } from "./ThreadList"
-import { Conversation } from "./Conversation"
+import { ThreadList } from "./messages/ThreadList"
+import { Conversation } from "./messages/Conversation"
+import { ContactList } from './contacts/Contacts';
 
 export const AppRoutes=()=>{
 
@@ -10,7 +11,12 @@ export const AppRoutes=()=>{
             {
                 path:"/*",
                 element: <App/>
-            }
+            },
+            
+            {
+                path:"/contacts",
+                element:<ContactList/>
+              }
         ]
     )
     return (

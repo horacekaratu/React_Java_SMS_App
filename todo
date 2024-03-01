@@ -1,20 +1,18 @@
 GW road map
-Implement backend to use Kafka
-minimize size of threads since they will be many-- rethhink
 Add contacts
 Add auth
-define styling for messages
-see if you can add a complimentary color
+add send component 
 add proper prfilepic
-arrange the styles
 create index roots
 stle the messages div to have the tail
-add send component 
+define styling for messages
+see if you can add a complimentary color
 add search with contact names and such
 add loading icons where needed.
 create integration tests
 add dates and time to messages.
-add redux logic
+minimize size of threads since they will be many-- rethhink, add snippets rather than message and also include a name
+add redux logic  --last thing
 
 Backend
 test with post man

@@ -2,22 +2,13 @@ import { css, styled, useTheme } from "styled-components"
 import { useLocation } from "react-router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleInfo, faTrash } from "@fortawesome/free-solid-svg-icons"
-import { BaseThreadItem } from "./styled/ThreadItem"
-import { ScollbarWrapper } from "./styled/ScrollBarWrapper"
-import { Title } from "./styled/Title"
-import { ProfilePicture } from "./styled/ProfilePicture"
-import { ErrorButton } from "./error-handling/ErrorFallBack"
+import { BaseThreadItem } from "../styled/ThreadItem"
+import { ScollbarWrapper } from "../styled/ScrollBarWrapper"
+import { Title } from "../styled/Title"
+import { ProfilePicture } from "../styled/ProfilePicture"
+import { DisappearingButton } from "../error-handling/ErrorFallBack"
 
-export const ConversationButton=styled(ErrorButton)`
-margin-left: var(--base-point);
-padding: calc(var(--base-point)* 1) var(--base-point);
-visibility: hidden;
 
-${props=>props.$error && css`
-background-color: ${(props)=>props.theme.colors.contextual.error} ;
-`}
-
-`
 
 export const ConversationThreadItem=styled(BaseThreadItem)`
 
@@ -42,6 +33,8 @@ margin-left: ${props => props.$incomming ? 'auto' : '50%'};
 `}
 
 
+
+
 `
 
 const AlignmentContainer=styled.div`
@@ -53,7 +46,7 @@ h3{
 `
 
 
-export const ThreadListContainer=styled.ul`
+export const ConversationThreadListContainer=styled.ul`
 max-height: 59vh;
 overflow-x: auto;
 
@@ -87,7 +80,7 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
          
          </ConversationTitle>
 <ScollbarWrapper>
-         <ThreadListContainer>
+         <ConversationThreadListContainer>
         {messages && messages.map((msg,index)=>{
           console.log(msg)
             return (
@@ -97,19 +90,19 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
                 
                 {msg.text}
                 <ButtonStack data-testid="button">
-                <ConversationButton onClick={()=>showDetailHandler(msg)}
+                <DisappearingButton  onClick={()=>showDetailHandler(msg)}
                  data-testid={`show-detail-button-${msg.id}`}  
                >
                 
                 <FontAwesomeIcon  icon={faCircleInfo} />
-                </ConversationButton>
-                <ConversationButton onClick={()=>deleteHandler(msg.id)}  $error
+                </DisappearingButton>
+                <DisappearingButton  onClick={()=>deleteHandler(msg.id)}  $error
                   data-testid={`delete-button-${msg.id}`}
                  >
                 
                 <FontAwesomeIcon   icon={faTrash} />
                 
-                </ConversationButton>
+                </DisappearingButton >
                 
                 </ButtonStack>
                 </ConversationThreadItem>
@@ -118,7 +111,7 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
                  )
         })}
        
-        </ThreadListContainer>
+        </ConversationThreadListContainer>
         </ScollbarWrapper>
 
         </>

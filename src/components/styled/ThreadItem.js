@@ -2,6 +2,9 @@ import { styled } from "styled-components";
 
 export const BaseThreadItem = styled.li`
   /* box model styling--basic */
+  display: flex;
+  justify-content: space-between;
+
   border-radius: var(--base-point);
   background-color: ${props=>props.theme.colors.primary.base} ;
   color: ${props=>props.theme.colors.lightNeutral.light} ;
@@ -16,5 +19,26 @@ export const BaseThreadItem = styled.li`
   cursor: pointer;
   /* list speciific styling  */
   list-style-position: inside;
+`;
+export const ThreadItem = styled(BaseThreadItem)`
+
+
+  /* state css */
+  &:hover {
+    background-color: ${(props) => props.theme.colors.primary.saturated};
+    color: ${(props) => props.theme.colors.lightNeutral.light};
+    transform: scale(1.03);
+    button{
+    visibility: visible;
+  }
+  }
+
+  &:active {
+    transform: scale(0.95);
+    background-color: ${(props) => props.theme.colors.primary.base};
+  }
+
+  /* transitions */
+  transition: background-color 0.3s ease;
 `;
 
