@@ -48,7 +48,7 @@ export const ThreadList = ({ handleOnClick }) => {
   return (
 
     
-    <div data-testid="thread-list" style={{margin : "0px 16px" }}>
+    <div data-testid="thread-list" style={{margin : "0px 16px",  }}>
 
    
 

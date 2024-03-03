@@ -4,8 +4,10 @@ import { SideBarThreadsContainer } from "../styled/ListContainer";
 import { ThreadItem } from "../styled/ThreadItem";
 import { DisappearingButton } from "../error-handling/ErrorFallBack";
 import { Input } from "../styled/Input";
+import { Outlet } from "react-router-dom";
+import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../styled/SplitScreen";
 
-export const ContactList = ({ onDeleteHandler, onShowDetailHandler }) => {
+export const ContactList = ({ onDeleteHandler, onShowDetailHandler, handleSelectContact }) => {
   const [contacts, setContacts] = useState();
   const [search, setSearch] = useState("");
   const [Loading, setLoading] = useState(true);
@@ -29,9 +31,13 @@ export const ContactList = ({ onDeleteHandler, onShowDetailHandler }) => {
     if (search === "") return true;
     return element.name.toLowerCase().includes(search.toLowerCase());
   });
-  console.log(filteredContacts);
+  
   return (
     <>
+    <SplitScreenContainer>
+      <LeftScreenContainer style={{margin : "0px 16px" }}>
+      
+   
       <Input
         type="text"
         placeholder="Enter contact name"
@@ -43,13 +49,13 @@ export const ContactList = ({ onDeleteHandler, onShowDetailHandler }) => {
         {!Loading &&
           filteredContacts.map((contact) => {
             return (
-              <ThreadItem key={contact.id}>
+              <ThreadItem key={contact.id} onClick={()=>handleSelectContact(contact)}>
                 <span>
                   <span>{contact.name} </span>
 
                   <span style={{ display: "none" }}>{contact.number}</span>
                 </span>
-                <span>
+                <span  style={{ display: "none" }}>
                   <DisappearingButton
                     $light
                     data-testid={`delete-button-${contact.id}`}
@@ -69,6 +75,11 @@ export const ContactList = ({ onDeleteHandler, onShowDetailHandler }) => {
             );
           })}
       </SideBarThreadsContainer>
+      </LeftScreenContainer>
+      <RightScreenContainer>
+      <Outlet/>
+      </RightScreenContainer>
+      </SplitScreenContainer>
     </>
   );
 };

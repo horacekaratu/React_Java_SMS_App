@@ -8,19 +8,8 @@ import { Outlet,  useNavigate, useRoutes } from "react-router";
 import { ErrorFallback } from "./components/error-handling/ErrorFallBack";
 import { googleFontsUrl } from "./Theme";
 import { ContactList } from "./components/contacts/Contacts";
+import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "./components/styled/SplitScreen";
 
-const AppContainer=styled.div`
-display: flex;
-justify-content: space-between;
-`
-const ThreadsContainer=styled.span`
-width: 33%;
-`
-const ConversationContainer=styled.span`
-margin-top: 72px;
-padding:  16px;
-width: 77%;
-`
 
 
 export const handleOnDelete=(id)=>{
@@ -59,22 +48,22 @@ const routes=useRoutes([
   return (
     <>
     
-    <AppContainer>
-    <ThreadsContainer>
+    <SplitScreenContainer>
+    <LeftScreenContainer>
       <link rel="stylesheet" href={googleFontsUrl} />
       <ErrorBoundary FallbackComponent={ErrorFallback}>
       <ThreadList handleOnClick={handleOnClick} />
       </ErrorBoundary>
-      </ThreadsContainer>
-      <ConversationContainer>
+      </LeftScreenContainer>
+      <RightScreenContainer>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
       
       <Outlet/>
       {routes}
       </ErrorBoundary>
-      </ConversationContainer>
+      </RightScreenContainer>
       
-      </AppContainer>
+      </SplitScreenContainer>
                                                                                                               
     </>
   );

@@ -25,49 +25,49 @@ const render=(ui,options)=>{
   
   }
 
-// describe("Conversation Component", () => {
-//   const mockeDeleteHandler=jest.fn()
-//   const mockeShowDetailsHandler=jest.fn()
+describe("Conversation Component", () => {
+  const mockeDeleteHandler=jest.fn()
+  const mockeShowDetailsHandler=jest.fn()
 
-//   it("should show  username ", () => {
-//     render(<Conversation  deleteHandler={mockeDeleteHandler}  showDetailHandler={mockeShowDetailsHandler} />);
-//     expect(screen.getByText("Alexander Alekhine")).toBeInTheDocument();
-//   });
-// });
+  it("should show  username ", () => {
+    render(<Conversation  deleteHandler={mockeDeleteHandler}  showDetailHandler={mockeShowDetailsHandler} />);
+    expect(screen.getByText("Alexander Alekhine")).toBeInTheDocument();
+  });
+});
 
-// describe("Conversation Component", () => {
-//   it("should show icon ", () => {
-//     render(<Conversation message={messages} userDetails={userDetails} />);
-//     expect(screen.getByTestId("user-icon-testid")).toBeInTheDocument();
-//   });
-// });
+describe("Conversation Component", () => {
+  it("should show icon ", () => {
+    render(<Conversation message={messages} userDetails={userDetails} />);
+    expect(screen.getByTestId("user-icon-testid")).toBeInTheDocument();
+  });
+});
 
-// describe("Conversation Component", () => {
-//   it("should show messages ", () => {
-//     render(<Conversation messages={messages} userDetails={userDetails} />);
-//     expect(screen.getByText("wanna play some chess")).toBeInTheDocument();
-//     expect(screen.getByText("alitema moal")).toBeInTheDocument();
-//   });
-// });
+describe("Conversation Component", () => {
+  it("should show messages ", () => {
+    render(<Conversation messages={messages} userDetails={userDetails} />);
+    expect(screen.getByText("wanna play some chess")).toBeInTheDocument();
+    expect(screen.getByText("alitema moal")).toBeInTheDocument();
+  });
+});
 
-// describe("Conversation Component", () => {
-//   it("should delete message", async () => {
-//     const mockOnDelete = jest.fn();
-//     render(
-//       <Conversation
-//         messages={messages}
-//         userDetails={userDetails}
-//         deleteHandler={mockOnDelete}
-//       />
-//     );
+describe("Conversation Component", () => {
+  it("should delete message", async () => {
+    const mockOnDelete = jest.fn();
+    render(
+      <Conversation
+        messages={messages}
+        userDetails={userDetails}
+        deleteHandler={mockOnDelete}
+      />
+    );
 
-//     await waitFor(() => {
-//       fireEvent.click(screen.getByTestId('delete-button-2'));
+    await waitFor(() => {
+      fireEvent.click(screen.getByTestId('delete-button-2'));
 
-//       expect(mockOnDelete).toHaveBeenCalledWith(2);
-//     });
-//   });
-// });
+      expect(mockOnDelete).toHaveBeenCalledWith(2);
+    });
+  });
+});
 
 describe("Conversation Component", () => {
     it("should show detail", async () => {

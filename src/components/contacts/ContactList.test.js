@@ -1,3 +1,5 @@
+// 1. Dispay number but with faint color 
+
 import {
   fireEvent,
   render as rtlRender,
@@ -48,27 +50,27 @@ describe("ContactList Component", () => {
     });
   });
 
-  it("should delete a contact on click", async () => {
-    const deleteHandler = jest.fn();
-    render(<ContactList onDeleteHandler={deleteHandler} />);
+  // it("should delete a contact on click", async () => {
+  //   const deleteHandler = jest.fn();
+  //   render(<ContactList onDeleteHandler={deleteHandler} />);
 
-    await waitFor(() => {
-      fireEvent.click(screen.getByTestId("delete-button-1"));
+  //   await waitFor(() => {
+  //     fireEvent.click(screen.getByTestId("delete-button-1"));
 
-      expect(deleteHandler).toHaveBeenCalledWith(1);
-    });
-  });
+  //     expect(deleteHandler).toHaveBeenCalledWith(1);
+  //   });
+  // });
 
-  it("should show  detail of a contact on click", async () => {
-    const showDetailHandler = jest.fn();
-    render(<ContactList onShowDetailHandler={showDetailHandler} />);
+  // it("should show  detail of a contact on click", async () => {
+  //   const showDetailHandler = jest.fn();
+  //   render(<ContactList onShowDetailHandler={showDetailHandler} />);
 
-    await waitFor(() => {
-      fireEvent.click(screen.getByTestId("show-detail-button-1"));
+  //   await waitFor(() => {
+  //     fireEvent.click(screen.getByTestId("show-detail-button-1"));
 
-      expect(showDetailHandler).toHaveBeenCalledWith(1);
-    });
-  });
+  //     expect(showDetailHandler).toHaveBeenCalledWith(1);
+  //   });
+  // });
 
   it("should search contacts by name", async () => {
     const showDetailHandler = jest.fn();

@@ -165,6 +165,7 @@ p,li{
     font-size: 1rem;
     line-height: 1.25rem;
     margin-bottom: 1rem;
+    
 }
 
 label{
@@ -172,6 +173,7 @@ label{
    font-size: 0.875rem;
    line-height: 1rem;
    margin-bottom: 0.5rem;
+   font-weight: 600;
    /* a good value to play around with for space */
 }
 

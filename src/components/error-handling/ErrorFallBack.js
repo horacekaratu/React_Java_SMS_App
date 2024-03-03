@@ -18,6 +18,7 @@ padding: calc(var(--base-point)* 2) var(--base-point);
 color: ${(props)=>props.theme.colors.lightNeutral.light};
 background-color: ${(props)=>props.theme.colors.primary.base};
 border-radius: calc(var(--base-point) *0.5);
+margin-right: var(--base-point);
 border: none;
 cursor: pointer;
 

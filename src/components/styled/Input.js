@@ -10,6 +10,4 @@ border-radius: 5px;
     border-color:   ${props=>props.theme.colors.primary.desaturated};
 }
 
-
-
 `
