@@ -1,9 +1,10 @@
 import { fireEvent, render as rtlRender, screen, waitFor } from "@testing-library/react";
 import { Conversation } from "./Conversation";
-import { messages, userDetails } from "../../App";
 import { Theme } from "../../Theme";
 import { ThemeProvider } from "styled-components";
 import {  MemoryRouter} from "react-router-dom";
+import { messages, userDetails } from "../../App";
+
 
 const initialState = {
   messages: messages,
