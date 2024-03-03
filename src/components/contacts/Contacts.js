@@ -34,10 +34,7 @@ export const ContactList = ({ onDeleteHandler, onShowDetailHandler, handleSelect
   
   return (
     <>
-    <SplitScreenContainer>
-      <LeftScreenContainer style={{margin : "0px 16px" }}>
-      
-   
+    
       <Input
         type="text"
         placeholder="Enter contact name"
@@ -75,11 +72,7 @@ export const ContactList = ({ onDeleteHandler, onShowDetailHandler, handleSelect
             );
           })}
       </SideBarThreadsContainer>
-      </LeftScreenContainer>
-      <RightScreenContainer>
-      <Outlet/>
-      </RightScreenContainer>
-      </SplitScreenContainer>
+     
     </>
   );
 };

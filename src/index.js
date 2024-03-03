@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import {App} from './App';
 import reportWebVitals from './reportWebVitals';
 import { setupWorker } from 'msw';
 import { handlers } from './mocks/handlers';
 import { ThemeProvider, styled } from 'styled-components';
 import { GlobalStyles, Theme} from './Theme';
 import { BrowserRouter, Router } from 'react-router-dom';
-import { AppRoutes, Routes } from './components/AppRoutes';
 const Container=styled.div`
 margin: 0 80px;
 padding: 0px;
@@ -23,7 +22,7 @@ root.render(
   <React.StrictMode>
   <Container>
     <BrowserRouter>
-    <AppRoutes/>
+    <App/>
     </BrowserRouter>
     </Container>
   </React.StrictMode>
