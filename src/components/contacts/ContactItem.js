@@ -1,5 +1,5 @@
 import { Input } from "../styled/Input";
-import { Button } from "../error-handling/ErrorFallBack";
+import { Button } from "../styled/ErrorFallBack";
 import { useEffect, useState } from "react";
 import { CloseInputContainer, InputContainer, InputGroup } from "../styled/FormElements";
 import { ButtonStack, FlexEnd } from "../styled/Buttons";

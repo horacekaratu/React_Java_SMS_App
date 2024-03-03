@@ -6,7 +6,7 @@ import { BaseThreadItem } from "../styled/ThreadItem"
 import { ScollbarWrapper } from "../styled/ScrollBarWrapper"
 import { Title } from "../styled/Title"
 import { ProfilePicture } from "../styled/ProfilePicture"
-import { DisappearingButton } from "../error-handling/ErrorFallBack"
+import { DisappearingButton } from "../styled/ErrorFallBack"
 
 
 
@@ -63,7 +63,7 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
     const props=useLocation()
     const  messages=props.state.messages && Object.values(props.state.messages)
     const userDetails=props.state.userDetails && props.state.userDetails
-
+  console.log(props)
   
 
 

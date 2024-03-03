@@ -4,7 +4,7 @@ import {  ThreadList } from "../../components/messages/ThreadList";
 import { ErrorBoundary } from "react-error-boundary";
 import { Conversation } from "../../components/messages/Conversation";
 import { Outlet,  useNavigate, useRoutes } from "react-router-dom";
-import { ErrorFallback } from "../../components/error-handling/ErrorFallBack";
+import { ErrorFallback } from "../styled/ErrorFallBack";
 import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../../components/styled/SplitScreen";
 import { googleFontsUrl } from "../../Theme";
 
