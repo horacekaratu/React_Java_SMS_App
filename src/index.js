@@ -1,31 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import {App} from './App';
-import reportWebVitals from './reportWebVitals';
-import { setupWorker } from 'msw';
-import { handlers } from './mocks/handlers';
-import { ThemeProvider, styled } from 'styled-components';
-import { GlobalStyles, Theme} from './Theme';
-import { BrowserRouter, Router } from 'react-router-dom';
-const Container=styled.div`
-margin: 0 80px;
-padding: 0px;
-`
-const worker= setupWorker(...handlers)
-worker.start()
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { App } from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { setupWorker } from "msw";
+import { handlers } from "./mocks/handlers";
+import { ThemeProvider, styled } from "styled-components";
+import { GlobalStyles, Theme } from "./Theme";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { AuthContextProvider } from "./components/Auth/AuthContext";
+import { Login } from "./components/Auth/Login";
+const Container = styled.div`
+  margin: 0 80px;
+  padding: 0px;
+
+`;
+const worker = setupWorker(...handlers);
+worker.start();
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
- 
   <ThemeProvider theme={Theme}>
-  <GlobalStyles/>
-  <React.StrictMode>
-  <Container>
-    <BrowserRouter>
-    <App/>
-    </BrowserRouter>
-    </Container>
-  </React.StrictMode>
+    <GlobalStyles />
+    <React.StrictMode>
+      <Container>
+        <BrowserRouter>
+          <AuthContextProvider>
+          <Routes>
+          <Route path="/login" element={<Login/>} />
+          <Route path="/*" element={<App/>} />
+
+        </Routes>
+            {/* <App /> */}
+          </AuthContextProvider>
+        </BrowserRouter>
+      </Container>
+    </React.StrictMode>
   </ThemeProvider>
 );
 

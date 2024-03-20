@@ -19,10 +19,12 @@ color: ${prop=>prop.theme.colors.lightNeutral.light};
 text-decoration: none;
 `
 export const NavigationComponent = () => {
+  console.log("Navigaton reload")
   return (
     <>
     <NavWrapper>
     <Ul>
+    <Li><NavLink to="/home">Home</NavLink></Li>
     <Li> <NavLink to="/threads">Messages</NavLink></Li> 
      <Li><NavLink to="/contacts">Contacts</NavLink></Li> 
      </Ul>

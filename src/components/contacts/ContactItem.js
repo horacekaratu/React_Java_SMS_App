@@ -8,6 +8,7 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
   const [contactObject, setContactObject] = useState(contact);
 
   useEffect(()=>{
+    console.log("contact itemss reload")
     setContactObject(contact)
   },[contact])
   return (

@@ -23,6 +23,13 @@ fonts:{
 // colors
 
 colors:{
+    neutrals:{
+        white:"#FFFFFF",
+        lightGrey:"#CCCCCC",
+        mediumGrey:"#999999",
+        darkGrey:"#333333",
+        black:"#000000",
+    },
     contextual: {
         error: "#B33B3B",
         success: "#3DB33B",
@@ -88,6 +95,8 @@ export const GlobalStyles=createGlobalStyle`
 
 :root{
     --base-point:8px;
+    height: 100vh;
+    /* background-color: blue; */
 }
 
 html{

@@ -1,5 +1,6 @@
 import { css, styled, useTheme } from "styled-components"
 import { useLocation } from "react-router"
+import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleInfo, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { BaseThreadItem } from "../styled/ThreadItem"
@@ -7,7 +8,8 @@ import { ScollbarWrapper } from "../styled/ScrollBarWrapper"
 import { Title } from "../styled/Title"
 import { ProfilePicture } from "../styled/ProfilePicture"
 import { DisappearingButton } from "../styled/ErrorFallBack"
-
+import { useContext } from "react"
+import {AuthContext} from "../Auth/AuthContext"
 
 
 export const ConversationThreadItem=styled(BaseThreadItem)`
@@ -59,11 +61,12 @@ const ButtonStack=styled.span`
 
 
 export const Conversation=({deleteHandler,showDetailHandler})=>{
+
   const theme=useTheme()
     const props=useLocation()
     const  messages=props.state.messages && Object.values(props.state.messages)
     const userDetails=props.state.userDetails && props.state.userDetails
-  console.log(props)
+    console.log("conversation reload")
   
 
 
@@ -82,7 +85,7 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
 <ScollbarWrapper>
          <ConversationThreadListContainer>
         {messages && messages.map((msg,index)=>{
-          console.log(msg)
+        
             return (
 
                 <AlignmentContainer key={index}>

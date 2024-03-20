@@ -14,6 +14,7 @@ export const ContactList = ({ onDeleteHandler, onShowDetailHandler, handleSelect
   const [_, setError] = useState();
 
   useEffect(() => {
+    console.log("contact list reload")
     fetch("https://api.example.com/contacts")
       .then((response) => {
         if (!response.ok)

@@ -4,6 +4,7 @@ import {  ConversationThreadListContainer } from "./Conversation";
 import { BaseThreadItem, ThreadItem } from "../styled/ThreadItem";
 import { LoadingMessage } from "../styled/LoadingStateMessage";
 import { SideBarThreadsContainer } from "../styled/ListContainer";
+import { useAuth } from "../Auth/useAuth"
 
 
 const ThreadTitle = styled.h2`
@@ -15,13 +16,13 @@ const ThreadSubTitle = styled.h3`
 // redplace with error boundary
 
 export const ThreadList = ({ handleOnClick }) => {
-  console.log()
   const [messages, setMessages] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [_, setError] = useState(false);
+  useAuth(window.location.pathname)
 
   useEffect(() => {
-   
+    console.log("Threadlist reload")
     const fetchData = async () => {
       await fetch("https://api.example.com/users")
         .then((res) => {
@@ -34,7 +35,6 @@ export const ThreadList = ({ handleOnClick }) => {
           return res.json();
         })
         .then((data) => {
-          console.log(data)
           setMessages(data);
           setIsLoading(false);
         })
@@ -53,13 +53,14 @@ export const ThreadList = ({ handleOnClick }) => {
    
 
 
-      <ThreadTitle>Message Threads</ThreadTitle>
+      {/* <ThreadTitle>Message Threads</ThreadTitle> */}
       {isLoading && (
         <LoadingMessage>Message Threads Loading ...</LoadingMessage>
       )}
       {!isLoading && (
         <>
-          <ThreadSubTitle>Threads</ThreadSubTitle>
+        <ThreadTitle>Threads</ThreadTitle>
+          {/* <ThreadSubTitle>Threads</ThreadSubTitle> */}
 
           <SideBarThreadsContainer>
             {messages.map((msg, index) => (

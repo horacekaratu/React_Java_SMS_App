@@ -1,4 +1,4 @@
-// 1. Dispay number but with faint color 
+// 1. Dispay number but with faint color
 
 import {
   fireEvent,
@@ -75,15 +75,12 @@ describe("ContactList Component", () => {
   it("should search contacts by name", async () => {
     const showDetailHandler = jest.fn();
     render(<ContactList />);
-
+    const contactnamePlaceholder=await screen.findByPlaceholderText("Enter contact name")
+    fireEvent.change(contactnamePlaceholder, {
+      target: { value: "Fischer" },
+    });
     await waitFor(() => {
-      fireEvent
-        .change(screen.getByPlaceholderText("Enter contact name"), {
-          target: { value: "Fischer" },
-        })
-        
-        expect(screen.getByText("Fischer"))
-        .toBeInTheDocument();
+      expect(screen.getByText("Fischer")).toBeInTheDocument();
       expect(screen.queryByText("Topalov")).not.toBeInTheDocument();
       expect(screen.queryByText("Kramnik")).not.toBeInTheDocument();
     });

@@ -18,7 +18,7 @@ export const handleOnShowDetail=(message)=>{
   console.log(message)
 }
 function ThreadsContainer(props) {
-
+  console.log("ThreadsContainer reload")
 const routes=useRoutes([
   // {index:true,path:"/", element:()=>(<>No messages selected</>)},
 {
