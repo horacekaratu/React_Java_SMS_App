@@ -1,9 +1,12 @@
 import { createContext, useState } from "react";
+import { useLocalStorage } from "../../utils/useLocalStorage";
 
 export const AuthContext=createContext()
 
 export const AuthContextProvider=({children})=>{
-const [isLoggedIn, setLoggedIn]=useState(false)
+const [isLoggedIn, setLoggedIn]=useLocalStorage("isLoggedIn")
+console.log("am i logged in ")
+console.log(isLoggedIn)
 const [userDetails, setUserDetails]=useState({name:"Fischer"})
 const login=(username, password)=>{
   

@@ -5,21 +5,22 @@ import { Input } from "../styled/Input";
 import { styled } from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
+import { useLocalStorage } from "../../utils/useLocalStorage";
 const LoginContainer=styled.div`
 max-width: 350px;
 margin: auto;
 margin-top: calc(var(--base-point)*8);
 `
 export const Login=()=>{
-    console.log("Login reload")
+    
     const navigate=useNavigate()
     const [username,setUsername]=useState()
     const [password,setPassword]=useState()
     const [isError,setIsError]=useState(false)
     const [isLoading, setIsLoading]=useState(false)
-
     const {state:{from}}=useLocation()
     const {setLoggedIn}=useContext(AuthContext)
+    const [isLoggedIn, setIsLoggedIn]=useLocalStorage("isLoggedIn",false,1)
 
     const handleInputChange=(inputType,value)=>{
        
@@ -46,6 +47,8 @@ export const Login=()=>{
                 return response.json()
             }).then(data=>{
                 setIsLoading(false)
+                // save to local storage using a custom hook. also create an extractor in the hook
+                setIsLoggedIn(true)
                 setLoggedIn(true)
                 navigate(from)
 

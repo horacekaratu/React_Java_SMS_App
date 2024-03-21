@@ -41,6 +41,7 @@ margin-left: ${props => props.$incomming ? 'auto' : '50%'};
 const AlignmentContainer=styled.div`
 `
 const ConversationTitle=styled(Title)`
+
 padding: calc(var(--base-point )*1);
 margin-bottom: calc(var(--base-point)*1);
 
@@ -68,9 +69,8 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
     const props=useLocation()
     const  messages=props.state.messages && Object.values(props.state.messages)
     const userDetails=props.state.userDetails && props.state.userDetails
-    console.log("conversation reload")
-  
-
+    console.log(messages)
+    console.log(userDetails)
 
     return(
         <>
@@ -125,7 +125,7 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
           width:"259px",
           marginLeft:"auto"
         }}>
-        <CreateMessage />
+        <CreateMessage  conversationid={messages[0].sender} sender={userDetails.name} />
         </div>
         </ScollbarWrapper>
         </>

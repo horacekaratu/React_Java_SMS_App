@@ -32,3 +32,19 @@ pre app
 make it mobile friendly completely.
 
 Later leaern typescript and classes in js.
+
+
+
+
+
+
+the new message should also be available without a conversations
+add time stamps for continuity
+implement ui/ux principles and refactoring
+add search to both threads and conversations
+
+solve teh pics problem
+add states for buttons and make unify buttons
+solve getting started issue
+unify the design
+add redux.
