@@ -15,7 +15,7 @@ const Container = styled.div`
   padding: 0px;
 
 `;
-const worker = setupWorker(...handlers);
+export const worker = setupWorker(...handlers);
 worker.start();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

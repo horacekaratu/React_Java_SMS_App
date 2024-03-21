@@ -30,6 +30,12 @@ export const handlers= [
       ctx.json(Features)
     );
   }),
+  rest.post('https://api.example.com/send-message', (req, res, ctx) => {
+  
+    return res(
+      ctx.status(200)
+    );
+  }),
   rest.get('https://api.example.com/contacts', (req, res, ctx) => {
     return res(
       ctx.status(200),

@@ -9,7 +9,7 @@ width: 33%;
 `
 export const RightScreenContainer=styled.span`
 
-margin-top: 72px;
+/* margin-top: 72px; */
 padding:  16px;
 width: 77%;
 `

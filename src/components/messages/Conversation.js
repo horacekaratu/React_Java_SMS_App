@@ -8,8 +8,7 @@ import { ScollbarWrapper } from "../styled/ScrollBarWrapper"
 import { Title } from "../styled/Title"
 import { ProfilePicture } from "../styled/ProfilePicture"
 import { DisappearingButton } from "../styled/ErrorFallBack"
-import { useContext } from "react"
-import {AuthContext} from "../Auth/AuthContext"
+import { CreateMessage } from "./CreateMessage"
 
 
 export const ConversationThreadItem=styled(BaseThreadItem)`
@@ -42,14 +41,17 @@ margin-left: ${props => props.$incomming ? 'auto' : '50%'};
 const AlignmentContainer=styled.div`
 `
 const ConversationTitle=styled(Title)`
+padding: calc(var(--base-point )*1);
+margin-bottom: calc(var(--base-point)*1);
+
 h3{
-    color:  ${(props) => props.theme.colors.primary.dark};
+    color:  ${(props) => props.theme.colors.primary.base};
 }
 `
 
 
 export const ConversationThreadListContainer=styled.ul`
-max-height: 59vh;
+max-height: 54vh;
 overflow-x: auto;
 
 `
@@ -72,8 +74,11 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
 
     return(
         <>
+        {/* should be on the right bottom
+         and the messages shouldnt go below it. style it aprt like the other inputs */}
         
-       
+        {/* <CreateMessage/> */}
+
         <ConversationTitle>
         <ProfilePicture
          src="/picture.png"
@@ -115,8 +120,14 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
         })}
        
         </ConversationThreadListContainer>
+       
+         <div  style={{
+          width:"259px",
+          marginLeft:"auto"
+        }}>
+        <CreateMessage />
+        </div>
         </ScollbarWrapper>
-
         </>
     )
 }
