@@ -51,7 +51,9 @@ describe("AuthProvider Context", () => {
 
   it("should logout", async () => {
     renderComponent();
+    console.log("about to click login")
     fireEvent.click(screen.getByText("Login"));
+    console.log("clicked login")
     await waitFor(() => {
       expect(screen.queryByText("loggedout")).toBeNull;
       expect(screen.queryByText("loggedin")).toBeInTheDocument();

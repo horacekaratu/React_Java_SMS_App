@@ -18,7 +18,7 @@ export const useLocalStorage = (key, initialValue=false, expirationTimeInMinutes
   if(storedValue  ){
    const parsedValue=JSON.parse(storedValue)
    initialValueJSON = JSON.parse(storedValue).value
-   const setExpirationTime=parsedValue.expiration+expirationTimeInMinutes*1*1000
+   const setExpirationTime=parsedValue.expiration+expirationTimeInMinutes*60*1000
    const presentTime=Date.now()
    if(setExpirationTime<presentTime){
     localStorage.removeItem(key)
@@ -29,8 +29,10 @@ export const useLocalStorage = (key, initialValue=false, expirationTimeInMinutes
   const [value, setValue] = useState(initialValueJSON);
 
   const updateValue=(value)=>{
+    console.log("inside hook")
+    console.log(value)
     value={ value, expiration: Date.now()}
-    setValue(value)
+    setValue(value.value)
     localStorage.setItem(key,JSON.stringify(value))
    
   }

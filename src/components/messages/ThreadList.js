@@ -7,7 +7,7 @@ import { SideBarThreadsContainer } from "../styled/ListContainer";
 import { useAuth } from "../Auth/useAuth"
 
 
-const ThreadTitle = styled.h2`
+export const ThreadTitle = styled.h2`
 `;
 const ThreadSubTitle = styled.h3`
 `;
@@ -37,6 +37,7 @@ export const ThreadList = ({ handleOnClick }) => {
         .then((data) => {
           setMessages(data);
           setIsLoading(false);
+          console.log(data)
         })
         .catch((error) => {
           setIsLoading(false);
@@ -53,13 +54,13 @@ export const ThreadList = ({ handleOnClick }) => {
    
 
 
-      {/* <ThreadTitle>Message Threads</ThreadTitle> */}
+      <ThreadTitle>Threads</ThreadTitle>
       {isLoading && (
         <LoadingMessage>Message Threads Loading ...</LoadingMessage>
       )}
       {!isLoading && (
         <>
-        <ThreadTitle>Threads</ThreadTitle>
+        {/* <ThreadTitle>Threads</ThreadTitle> */}
           {/* <ThreadSubTitle>Threads</ThreadSubTitle> */}
 
           <SideBarThreadsContainer>

@@ -31,6 +31,10 @@ box-shadow: 1px 2px 5px ${props=>props.theme.colors.primary.desaturated};
 ${props=>props.$incomming && css`
 margin-left: ${props => props.$incomming ? 'auto' : '50%'};
 
+background-color: ${(props) => props.theme.colors.neutrals.lightGrey}; 
+/* color: ${(props) => props.theme.colors.neutrals.darkGrey};  */
+
+
 `}
 
 
@@ -41,7 +45,10 @@ margin-left: ${props => props.$incomming ? 'auto' : '50%'};
 const AlignmentContainer=styled.div`
 `
 const ConversationTitle=styled(Title)`
-
+/* box-shadow: 0px 4px 4px  ${(props) => props.theme.colors.neutrals.darkGrey};  */
+border-bottom:3px solid ${(props) => props.theme.colors.primary.dark}; 
+/* border-top:3px solid ${(props) => props.theme.colors.neutrals.darkGrey};  */
+/* background-color: ${(props) => props.theme.colors.neutrals.lightGrey};  */
 padding: calc(var(--base-point )*1);
 margin-bottom: calc(var(--base-point)*1);
 
@@ -69,8 +76,7 @@ export const Conversation=({deleteHandler,showDetailHandler})=>{
     const props=useLocation()
     const  messages=props.state.messages && Object.values(props.state.messages)
     const userDetails=props.state.userDetails && props.state.userDetails
-    console.log(messages)
-    console.log(userDetails)
+    const contactid=props.state.userDetails && props.state.contactid
 
     return(
         <>

@@ -6,6 +6,7 @@ import { DisappearingButton } from "../styled/ErrorFallBack";
 import { Input } from "../styled/Input";
 import { Outlet } from "react-router-dom";
 import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../styled/SplitScreen";
+import { ThreadTitle } from "../messages/ThreadList";
 
 export const ContactList = ({ onDeleteHandler, onShowDetailHandler, handleSelectContact }) => {
   const [contacts, setContacts] = useState();
@@ -35,6 +36,8 @@ export const ContactList = ({ onDeleteHandler, onShowDetailHandler, handleSelect
   
   return (
     <>
+    
+     <ThreadTitle>Contacts</ThreadTitle>
     
       <Input
         type="text"

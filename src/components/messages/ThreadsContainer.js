@@ -7,17 +7,33 @@ import { Outlet,  useNavigate, useRoutes } from "react-router-dom";
 import { ErrorFallback } from "../styled/ErrorFallBack";
 import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../../components/styled/SplitScreen";
 import { googleFontsUrl } from "../../Theme";
+import { NewMessage } from "./NewMessage";
 
 
 
 export const handleOnDelete=(id)=>{
 console.log("deleting "+id)
 }
+
 export const handleOnShowDetail=(message)=>{
   console.log("showing detail ")
   console.log(message)
 }
 function ThreadsContainer(props) {
+  const navigate=useNavigate()
+  const handleSelectContact=(contact)=>{
+    console.log(contact.id)
+    // make redux http req to get the messages of the contact
+      // setto
+    navigate(`/threads/${contact.id}`, {
+       
+      state: {
+        messages,
+        userDetails,
+        contactid:contact.id
+      },
+    });
+    }
   console.log("ThreadsContainer reload")
 const routes=useRoutes([
   // {index:true,path:"/", element:()=>(<>No messages selected</>)},
@@ -30,10 +46,10 @@ const routes=useRoutes([
 
 ])
   const[selectedThread,setSelectedThread]=useState()
-  const navigate=useNavigate()
+
   
   const handleOnClick = (id) => {
-    
+    console.log(id)
     navigate(`/threads/${id}`, {
       
       state: {
@@ -50,7 +66,9 @@ const routes=useRoutes([
     <LeftScreenContainer>
       <link rel="stylesheet" href={googleFontsUrl} />
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <ThreadList handleOnClick={handleOnClick} />
+       <NewMessage toggle={selectedThread} setToggle={setSelectedThread} handleSelectContact={handleSelectContact}/>
+     {!selectedThread && <ThreadList handleOnClick={handleOnClick} />}
+     
       </ErrorBoundary>
       </LeftScreenContainer>
       <RightScreenContainer>

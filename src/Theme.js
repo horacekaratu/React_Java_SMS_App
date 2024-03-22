@@ -206,10 +206,10 @@ figcaption{
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: ${(props) => props.theme.colors.primary.background};
+    background: ${(props) => props.theme.colors.neutrals.lightGrey};
   }
   ::-webkit-scrollbar-thumb {
-    background: ${(props) => props.theme.colors.primary.base};
+    background: ${(props) => props.theme.colors.neutrals.darkGrey};
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {

@@ -48,3 +48,13 @@ add states for buttons and make unify buttons
 solve getting started issue
 unify the design
 add redux.
+
+The new message should float atht he bootom right in an emoty convo. 
+a mode to choose a contact
+then it should open his conversation, if alreday present or a new one if not oresent. 
+All convos are ina  coversation
+
+have a plus icon that will turn into a search for contact but already listing contacts. on sleect openthe convo.
+search for the convos with that sender and open. else create a new entry
+
+mode to add contact
