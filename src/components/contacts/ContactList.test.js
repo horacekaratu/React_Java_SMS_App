@@ -85,4 +85,11 @@ describe("ContactList Component", () => {
       expect(screen.queryByText("Kramnik")).not.toBeInTheDocument();
     });
   });
+
+  it("should allow adding a new contact",()=>{
+    render(<ContactList />);
+    expect(screen.getByTestId("add-contact")).toBeInTheDocument()
+  })
+  
+ 
 });

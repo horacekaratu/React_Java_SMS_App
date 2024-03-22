@@ -83,4 +83,5 @@ describe("Contact Item Component", () => {
       expect(mockHandleDelete).toHaveBeenCalledWith(contacts[0].id);
     });
   });
+
 });

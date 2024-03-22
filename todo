@@ -34,27 +34,13 @@ make it mobile friendly completely.
 Later leaern typescript and classes in js.
 
 
-
-
-
-
-the new message should also be available without a conversations
-add time stamps for continuity
 implement ui/ux principles and refactoring
-add search to both threads and conversations
+add time stamps for continuity
+unify the design
 
-solve teh pics problem
 add states for buttons and make unify buttons
 solve getting started issue
-unify the design
+
 add redux.
-
-The new message should float atht he bootom right in an emoty convo. 
-a mode to choose a contact
-then it should open his conversation, if alreday present or a new one if not oresent. 
-All convos are ina  coversation
-
-have a plus icon that will turn into a search for contact but already listing contacts. on sleect openthe convo.
-search for the convos with that sender and open. else create a new entry
-
-mode to add contact
+add search to both threads and conversations
+solve teh pics problem

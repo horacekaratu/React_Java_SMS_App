@@ -7,13 +7,16 @@ import { Input } from "../styled/Input";
 import { Outlet } from "react-router-dom";
 import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../styled/SplitScreen";
 import { ThreadTitle } from "../messages/ThreadList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useTheme } from "styled-components";
 
-export const ContactList = ({ onDeleteHandler, onShowDetailHandler, handleSelectContact }) => {
+export const ContactList = ({ onDeleteHandler, onShowDetailHandler, handleSelectContact,handleAddContact }) => {
   const [contacts, setContacts] = useState();
   const [search, setSearch] = useState("");
   const [Loading, setLoading] = useState(true);
   const [_, setError] = useState();
-
+  const theme=useTheme()
   useEffect(() => {
     console.log("contact list reload")
     fetch("https://api.example.com/contacts")
@@ -36,7 +39,13 @@ export const ContactList = ({ onDeleteHandler, onShowDetailHandler, handleSelect
   
   return (
     <>
-    
+  
+      <FontAwesomeIcon color={
+                         theme.colors.primary.base
+                    } size="6x" data-testid="add-contact" icon={faPlus} 
+                onClick={()=>
+                handleAddContact()}
+            />
      <ThreadTitle>Contacts</ThreadTitle>
     
       <Input
