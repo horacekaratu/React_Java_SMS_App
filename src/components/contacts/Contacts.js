@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "styled-components";
 
-export const ContactList = ({ onDeleteHandler, onShowDetailHandler, handleSelectContact,handleAddContact }) => {
+export const ContactList = ({ isMainComponent,onDeleteHandler, onShowDetailHandler, handleSelectContact,handleAddContact }) => {
   const [contacts, setContacts] = useState();
   const [search, setSearch] = useState("");
   const [Loading, setLoading] = useState(true);
@@ -40,12 +40,12 @@ export const ContactList = ({ onDeleteHandler, onShowDetailHandler, handleSelect
   return (
     <>
   
-      <FontAwesomeIcon color={
+   {isMainComponent && <FontAwesomeIcon color={
                          theme.colors.primary.base
                     } size="6x" data-testid="add-contact" icon={faPlus} 
                 onClick={()=>
                 handleAddContact()}
-            />
+            />}   
      <ThreadTitle>Contacts</ThreadTitle>
     
       <Input

@@ -44,3 +44,7 @@ solve getting started issue
 add redux.
 add search to both threads and conversations
 solve teh pics problem
+remove much shaking of page on navigation. elements should be at same position in each page
+add interactiveness to the navbar
+add logout button/login.
+solve the issue where you can still continue after timeout unless you reload

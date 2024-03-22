@@ -59,6 +59,7 @@ const handleSaveContact=(contact)=>{
      <SplitScreenContainer>
       <LeftScreenContainer style={{margin : "0px 16px" }}>
 <ContactList  
+isMainComponent={true}
         handleSelectContact={handleSelectContact}
         onDeleteHandler={handleOnDelete} 
         onShowDetailHandler={handleOnShowDetail}
