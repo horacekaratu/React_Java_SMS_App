@@ -1,8 +1,8 @@
 import { Input } from "../styled/Input";
 import { Button } from "../styled/ErrorFallBack";
-import { CloseInputContainer, InputContainer, InputGroup } from "../styled/FormElements";
+import {  InputContainer, InputGroup } from "../styled/FormElements";
 import {  FlexEnd } from "../styled/Buttons";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 
 export const NewContact=({  handleAddContact })=>{
@@ -60,7 +60,7 @@ const [error, setError]=useState(false)
            <Button
              onClick={() => {
                 const result=handleAddContact(contactObject);
-                if(!result==""){
+                if(!result===""){
                     setError(result)
                 }else{
                     setError("Contact saved")

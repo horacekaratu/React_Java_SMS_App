@@ -6,7 +6,6 @@ import { Conversation } from "../../components/messages/Conversation";
 import { Outlet,  useNavigate, useRoutes } from "react-router-dom";
 import { ErrorFallback } from "../styled/ErrorFallBack";
 import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../../components/styled/SplitScreen";
-import { googleFontsUrl } from "../../Theme";
 import { NewMessage } from "./NewMessage";
 
 

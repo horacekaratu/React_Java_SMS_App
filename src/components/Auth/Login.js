@@ -20,8 +20,7 @@ export const Login=()=>{
     const [isLoading, setIsLoading]=useState(false)
     const {state}=useLocation()
     const {setLoggedIn}=useContext(AuthContext)
-    const [isLoggedIn, setIsLoggedIn]=useLocalStorage("isLoggedIn",false,1)
-    console.log(state)
+    const [_, setIsLoggedIn]=useLocalStorage("isLoggedIn",false,1)
     let from="/home"
     if(state){
         from=state.from

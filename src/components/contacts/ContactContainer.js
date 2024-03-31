@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react"
-import { Outlet, useLocation, useNavigate, useRoutes, redirect } from "react-router-dom"
+import { useState } from "react"
+import { Outlet, useNavigate, useRoutes} from "react-router-dom"
 import {ContactList} from "./Contacts"
 import {ContactItem} from "./ContactItem"
 import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../styled/SplitScreen"
@@ -26,8 +26,6 @@ export const ContactContainer=()=>{
     useAuth(window.location.pathname)
     const navigate=useNavigate()
     
-   
-    const location=useLocation()
     const [selectedContact, setSelectedContact]=useState()
 const routes=useRoutes([
     {

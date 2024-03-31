@@ -18,7 +18,7 @@ export const ContactList = ({
   const [contacts, setContacts] = useState();
   const [search, setSearch] = useState("");
   const [Loading, setLoading] = useState(true);
-  const [_, setError] = useState();
+  const [ setError] = useState();
   useEffect(() => {
     console.log("contact list reload");
     fetch("https://api.example.com/contacts")
@@ -33,7 +33,7 @@ export const ContactList = ({
         setContacts(data);
         setLoading(false);
       });
-  }, []);
+  }, [setError]);
   const filteredContacts = contacts?.filter((element) => {
     if (search === "") return true;
     return element.name.toLowerCase().includes(search.toLowerCase());

@@ -67,7 +67,7 @@ const Feature = styled.li`
     width: 400px;
     min-width: 0;
     /* background-color: red; */
-    color: ${(props) => props.theme.colors.primary.base};
+    color:  ${(props) => props.theme.colors.neutrals.black};
     font-weight: bold;
     white-space: nowrap; /* Prevent text from wrapping onto multiple lines */
     &::after {
@@ -77,7 +77,7 @@ const Feature = styled.li`
 `;
 
 export const CustomIcon = styled(FontAwesomeIcon)`
-  color: ${(props) => props.theme.colors.primary.base};
+  color: ${(props) => props.theme.colors.neutrals.black};
 `;
 
 const FeatureText = styled.p`
@@ -93,8 +93,6 @@ export const Home = () => {
   const [testimonials, setTestimonials]=useState()
   const [getStarted, setGetStarted]=useState()
   const [features, setFeatures]=useState()
-  const [loading, setLoading]=useState()
-  const [error, setError]=useState()
   const memoizedGetStartedData=useMemo(()=>Object.entries(GetStartedData),[])
   const memoizedFeatures=useMemo(()=>Object.entries(Features),[])
   const memoizedTestimonials=useMemo(()=>Object.entries(Testimonials),[])

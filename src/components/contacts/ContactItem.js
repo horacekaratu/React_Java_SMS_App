@@ -8,7 +8,6 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
   const [contactObject, setContactObject] = useState(contact);
 
   useEffect(()=>{
-    console.log("contact itemss reload")
     setContactObject(contact)
   },[contact])
   return (
@@ -17,7 +16,7 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
       <InputContainer>
         <label htmlFor="name">Name : </label>
         <Input
-          value={contactObject.name}
+          value={contactObject?.name}
           readOnly={readOnly}
           onChange={(event) =>
             setContactObject((prev) => ({ ...prev, name: event.target.value }))
@@ -27,7 +26,7 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
       <InputContainer>
         <label htmlFor="number">Number : </label>
         <Input
-          value={contactObject.number}
+          value={contactObject?.number}
           readOnly={readOnly}
           onChange={(event) =>
             setContactObject((prev) => ({
@@ -40,7 +39,7 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
       <InputContainer>
         <label htmlFor="country">Country : </label>
         <Input
-          value={contactObject.country}
+          value={contactObject?.country}
           readOnly={readOnly}
           onChange={(event) =>
             setContactObject((prev) => ({

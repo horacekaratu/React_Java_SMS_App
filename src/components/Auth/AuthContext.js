@@ -1,7 +1,6 @@
 import { createContext, useState } from "react";
 import { useLocalStorage } from "../../utils/useLocalStorage";
 import { useRoutes } from "react-router-dom";
-import { Login } from "./Login";
 import { Home } from "../home/Home";
 
 export const AuthContext = createContext();

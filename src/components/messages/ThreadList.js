@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { styled} from "styled-components";
-import {  ConversationThreadListContainer } from "./Conversation";
-import { BaseThreadItem, ThreadItem } from "../styled/ThreadItem";
+import { ThreadItem } from "../styled/ThreadItem";
 import { LoadingMessage } from "../styled/LoadingStateMessage";
 import { SideBarThreadsContainer } from "../styled/ListContainer";
 import { useAuth } from "../Auth/useAuth"
@@ -10,16 +9,12 @@ import { Input } from "../styled/Input";
 
 export const ThreadTitle = styled.h2`
 `;
-const ThreadSubTitle = styled.h3`
-`;
 
-
-// redplace with error boundary
 
 export const ThreadList = ({ handleOnClick }) => {
   const [messages, setMessages] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [_, setError] = useState(false);
+  const [setError] = useState(false);
   const [search, setSearch] = useState("");
   useAuth(window.location.pathname)
 
@@ -47,7 +42,7 @@ export const ThreadList = ({ handleOnClick }) => {
     };
 
     fetchData();
-  }, []);
+  }, [setError]);
   const filteredMessages = messages?.filter((element) => {
     if (search === "") return true;
     return element.message.toLowerCase().includes(search.toLowerCase());
@@ -73,9 +68,7 @@ export const ThreadList = ({ handleOnClick }) => {
       )}
       {!isLoading && (
         <>
-        {/* <ThreadTitle>Threads</ThreadTitle> */}
-          {/* <ThreadSubTitle>Threads</ThreadSubTitle> */}
-
+       
           <SideBarThreadsContainer>
             {filteredMessages.map((msg, index) => (
               <ThreadItem key={index} onClick={() => handleOnClick(msg.id)}>

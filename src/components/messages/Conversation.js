@@ -1,6 +1,5 @@
-import { css, styled, useTheme } from "styled-components"
+import { css, styled} from "styled-components"
 import { useLocation } from "react-router"
-import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleInfo, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { BaseThreadItem } from "../styled/ThreadItem"
@@ -88,11 +87,9 @@ const ButtonStack=styled.span`
 
 export const Conversation=({deleteHandler,showDetailHandler})=>{
 
-  const theme=useTheme()
     const props=useLocation()
     const  messages=props.state.messages && Object.values(props.state.messages)
     const userDetails=props.state.userDetails && props.state.userDetails
-    const contactid=props.state.userDetails && props.state.contactid
 
     return(
         <>

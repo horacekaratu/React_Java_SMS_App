@@ -10,6 +10,7 @@ margin-right: var(--base-point);
 `
 export const IconButton=styled(Button)`
   padding: calc(var(--base-point)*1.19) calc(var(--base-point)*2);
+  position: absolute;
   /* height: calc(var(--base-point)*3); */
 `;
 
@@ -60,6 +61,7 @@ export const CreateMessage=({conversationid,sender})=>{
         {isSent && <p>Message sent</p>}
         {isError && <p>{isError}</p>}
         
+        <div>
             <InputMR1  type="text" placeholder="Type Message" value={message.message}
 
                 onChange={(event)=>{
@@ -73,6 +75,7 @@ export const CreateMessage=({conversationid,sender})=>{
              <CustomIconWhite  icon={ faPaperPlane } />
              </span>
             </IconButton>
+            </div>
         
 
         </>
