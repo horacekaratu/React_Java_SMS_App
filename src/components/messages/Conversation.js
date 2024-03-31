@@ -19,7 +19,7 @@ justify-content: space-between;
 max-width: 40%;
 background-color: ${props=>props.theme.colors.lightNeutral.light} ;
 color: ${props=>props.theme.colors.darkNeutral.dark} ;
-box-shadow: 1px 2px 5px ${props=>props.theme.colors.primary.desaturated};
+box-shadow: 1px 2px 5px ${props=>props.theme.colors.neutrals.lightGrey};
 
 
 &:hover{
@@ -46,14 +46,14 @@ const AlignmentContainer=styled.div`
 `
 const ConversationTitle=styled(Title)`
 /* box-shadow: 0px 4px 4px  ${(props) => props.theme.colors.neutrals.darkGrey};  */
-border-bottom:3px solid ${(props) => props.theme.colors.primary.dark}; 
+border-bottom:3px solid ${(props) => props.theme.colors.neutrals.darkGrey}; 
 /* border-top:3px solid ${(props) => props.theme.colors.neutrals.darkGrey};  */
 /* background-color: ${(props) => props.theme.colors.neutrals.lightGrey};  */
 padding: calc(var(--base-point )*1);
 margin-bottom: calc(var(--base-point)*1);
 
 h3{
-    color:  ${(props) => props.theme.colors.primary.base};
+    color:  ${(props) => props.theme.colors.neutrals.black};
 }
 `
 
@@ -61,9 +61,25 @@ h3{
 export const ConversationThreadListContainer=styled.ul`
 max-height: 54vh;
 overflow-x: auto;
+--u: 10px;
+	--c1: #f7f5f5;
+	--c2: #f0eded;
+	--c3: #f0eded;
+	--gp: 50%/ calc(var(--u) * 16.9) calc(var(--u) * 5.8);
+	background: 
+		conic-gradient(from 122deg at 50% 85.15%, var(--c2) 0 58deg, var(--c3) 0 116deg, #fff0 0 100%) var(--gp),
+		conic-gradient(from 122deg at 50% 72.5%, var(--c1) 0 116deg, #fff0 0 100%) var(--gp),
+		conic-gradient(from 58deg at 82.85% 50%, var(--c3) 0 64deg, #fff0 0 100%) var(--gp),
+		conic-gradient(from 58deg at 66.87% 50%, var(--c1) 0 64deg, var(--c2) 0 130deg, #fff0 0 100%) var(--gp),
+		conic-gradient(from 238deg at 17.15% 50%, var(--c2) 0 64deg, #fff0 0 100%) var(--gp),
+		conic-gradient(from 172deg at 33.13% 50%, var(--c3) 0 66deg, var(--c1) 0 130deg, #fff0 0 100%) var(--gp),
+		linear-gradient(98deg, var(--c3) 0 15%, #fff0 calc(15% + 1px) 100%) var(--gp),
+		linear-gradient(-98deg, var(--c2) 0 15%, #fff0 calc(15% + 1px) 100%) var(--gp),
+		conic-gradient(from -58deg at 50.25% 14.85%, var(--c3) 0 58deg, var(--c2) 0 116deg, #fff0 0 100%) var(--gp),
+		conic-gradient(from -58deg at 50% 28.125%, var(--c1) 0 116deg, #fff0 0 100%) var(--gp),
+		linear-gradient(90deg, var(--c2) 0 50%, var(--c3) 0 100%) var(--gp);
 
 `
-
 const ButtonStack=styled.span`
 
 `

@@ -64,9 +64,10 @@ const routes=useRoutes([
     
     <SplitScreenContainer>
     <LeftScreenContainer>
-      <link rel="stylesheet" href={googleFontsUrl} />
+
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-       <NewMessage toggle={selectedThread} setToggle={setSelectedThread} handleSelectContact={handleSelectContact}/>
+       <NewMessage toggle={selectedThread} setToggle={setSelectedThread} 
+       handleSelectContact={handleSelectContact}/>
      {!selectedThread && <ThreadList handleOnClick={handleOnClick} />}
      
       </ErrorBoundary>

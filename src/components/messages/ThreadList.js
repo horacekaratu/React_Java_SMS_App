@@ -5,6 +5,7 @@ import { BaseThreadItem, ThreadItem } from "../styled/ThreadItem";
 import { LoadingMessage } from "../styled/LoadingStateMessage";
 import { SideBarThreadsContainer } from "../styled/ListContainer";
 import { useAuth } from "../Auth/useAuth"
+import { Input } from "../styled/Input";
 
 
 export const ThreadTitle = styled.h2`
@@ -19,6 +20,7 @@ export const ThreadList = ({ handleOnClick }) => {
   const [messages, setMessages] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [_, setError] = useState(false);
+  const [search, setSearch] = useState("");
   useAuth(window.location.pathname)
 
   useEffect(() => {
@@ -46,17 +48,28 @@ export const ThreadList = ({ handleOnClick }) => {
 
     fetchData();
   }, []);
+  const filteredMessages = messages?.filter((element) => {
+    if (search === "") return true;
+    return element.message.toLowerCase().includes(search.toLowerCase());
+  });
   return (
 
     
-    <div data-testid="thread-list" style={{margin : "0px 16px",  }}>
+    <div data-testid="thread-list">
 
    
 
 
+
       <ThreadTitle>Threads</ThreadTitle>
+      <Input
+        type="text"
+        placeholder="Enter contact name"
+        value={search}
+        onChange={(event) => setSearch(event.target.value)}
+      />
       {isLoading && (
-        <LoadingMessage>Message Threads Loading ...</LoadingMessage>
+        <LoadingMessage>Loading ...</LoadingMessage>
       )}
       {!isLoading && (
         <>
@@ -64,7 +77,7 @@ export const ThreadList = ({ handleOnClick }) => {
           {/* <ThreadSubTitle>Threads</ThreadSubTitle> */}
 
           <SideBarThreadsContainer>
-            {messages.map((msg, index) => (
+            {filteredMessages.map((msg, index) => (
               <ThreadItem key={index} onClick={() => handleOnClick(msg.id)}>
                 {msg.message}
               </ThreadItem>

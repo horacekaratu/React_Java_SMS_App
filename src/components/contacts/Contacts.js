@@ -4,21 +4,23 @@ import { SideBarThreadsContainer } from "../styled/ListContainer";
 import { ThreadItem } from "../styled/ThreadItem";
 import { DisappearingButton } from "../styled/ErrorFallBack";
 import { Input } from "../styled/Input";
-import { Outlet } from "react-router-dom";
-import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../styled/SplitScreen";
 import { ThreadTitle } from "../messages/ThreadList";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { LargeFontAwesomeIconStateful } from "../styled/Buttons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { useTheme } from "styled-components";
 
-export const ContactList = ({ isMainComponent,onDeleteHandler, onShowDetailHandler, handleSelectContact,handleAddContact }) => {
+export const ContactList = ({
+  isMainComponent,
+  onDeleteHandler,
+  onShowDetailHandler,
+  handleSelectContact,
+  handleAddContact,
+}) => {
   const [contacts, setContacts] = useState();
   const [search, setSearch] = useState("");
   const [Loading, setLoading] = useState(true);
   const [_, setError] = useState();
-  const theme=useTheme()
   useEffect(() => {
-    console.log("contact list reload")
+    console.log("contact list reload");
     fetch("https://api.example.com/contacts")
       .then((response) => {
         if (!response.ok)
@@ -36,18 +38,19 @@ export const ContactList = ({ isMainComponent,onDeleteHandler, onShowDetailHandl
     if (search === "") return true;
     return element.name.toLowerCase().includes(search.toLowerCase());
   });
-  
+
   return (
     <>
-  
-   {isMainComponent && <FontAwesomeIcon color={
-                         theme.colors.primary.base
-                    } size="6x" data-testid="add-contact" icon={faPlus} 
-                onClick={()=>
-                handleAddContact()}
-            />}   
-     <ThreadTitle>Contacts</ThreadTitle>
     
+      {isMainComponent && (
+        <LargeFontAwesomeIconStateful 
+         icon={faPlus}
+        handler={handleAddContact}
+        testid={"add-contact"}
+         />
+      )}
+      <ThreadTitle>Contacts</ThreadTitle>
+
       <Input
         type="text"
         placeholder="Enter contact name"
@@ -59,13 +62,16 @@ export const ContactList = ({ isMainComponent,onDeleteHandler, onShowDetailHandl
         {!Loading &&
           filteredContacts.map((contact) => {
             return (
-              <ThreadItem key={contact.id} onClick={()=>handleSelectContact(contact)}>
+              <ThreadItem
+                key={contact.id}
+                onClick={() => handleSelectContact(contact)}
+              >
                 <span>
                   <span>{contact.name} </span>
 
                   <span style={{ display: "none" }}>{contact.number}</span>
                 </span>
-                <span  style={{ display: "none" }}>
+                <span style={{ display: "none" }}>
                   <DisappearingButton
                     $light
                     data-testid={`delete-button-${contact.id}`}
@@ -85,7 +91,6 @@ export const ContactList = ({ isMainComponent,onDeleteHandler, onShowDetailHandl
             );
           })}
       </SideBarThreadsContainer>
-     
     </>
   );
 };

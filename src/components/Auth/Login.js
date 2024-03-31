@@ -18,10 +18,14 @@ export const Login=()=>{
     const [password,setPassword]=useState()
     const [isError,setIsError]=useState(false)
     const [isLoading, setIsLoading]=useState(false)
-    const {state:{from}}=useLocation()
+    const {state}=useLocation()
     const {setLoggedIn}=useContext(AuthContext)
     const [isLoggedIn, setIsLoggedIn]=useLocalStorage("isLoggedIn",false,1)
-
+    console.log(state)
+    let from="/home"
+    if(state){
+        from=state.from
+    }
     const handleInputChange=(inputType,value)=>{
        
     setIsError(false)

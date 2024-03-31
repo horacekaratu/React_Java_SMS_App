@@ -57,7 +57,7 @@ const handleSaveContact=(contact)=>{
 
     return(<>
      <SplitScreenContainer>
-      <LeftScreenContainer style={{margin : "0px 16px" }}>
+      <LeftScreenContainer>
 <ContactList  
 isMainComponent={true}
         handleSelectContact={handleSelectContact}

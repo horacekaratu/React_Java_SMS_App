@@ -5,7 +5,7 @@ export const BaseThreadItem = styled.li`
   display: flex;
   justify-content: space-between;
 
-  border-radius: var(--base-point);
+  border-radius: ${(prop) => prop.theme.sizes.borderRadius.normal};
   background-color: ${props=>props.theme.colors.primary.base} ;
   color: ${props=>props.theme.colors.lightNeutral.light} ;
   max-width: 100%;

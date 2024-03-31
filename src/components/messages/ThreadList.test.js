@@ -54,7 +54,7 @@ describe("ThreadList Component", () => {
   // });
   it("should render loading state", async () => {
     render(<ThreadList />);
-    expect(screen.getByText("Message Threads Loading ...")).toBeInTheDocument();
+    expect(screen.getByText("Loading ...")).toBeInTheDocument();
   });
 
   it("should render threads", async () => {

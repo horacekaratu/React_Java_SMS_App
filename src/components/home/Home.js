@@ -25,7 +25,7 @@ flex-direction: column;
   position: relative;
   width: 300px;
   text-align: center;
-  border-radius: 5px;
+  border-radius: ${(prop) => prop.theme.sizes.borderRadius.normal};
   border: 1px solid #ddd;
   padding: 48px 24px 24px;
   box-shadow: 0px 2px 4px ${(props) => props.theme.colors.primary.desaturated};

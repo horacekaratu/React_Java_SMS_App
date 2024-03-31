@@ -5,9 +5,14 @@ import { NavigationComponent } from "./components/navigation/Navigation";
 import { Login } from "./components/Auth/Login";
 import { Home } from "./components/home/Home";
 import { Footer } from "./components/footer/Footer";
-
+import { AuthContext } from "./components/Auth/AuthContext";
+import { useContext } from "react";
 export const App = () => {
+ 
+  const {login, logout}=useContext(AuthContext)
+  
   const routes = useRoutes([
+  
     {
       path: "home",
       element: <Home />,
@@ -31,7 +36,7 @@ export const App = () => {
     <NavigationComponent />
    
     <div style={{display:"flex",flexDirection:"column", minHeight:"100vh"}}>
-    <div  style={{flex:1}} >
+    <div  style={{flex:1 ,minHeight:"100vh"}} >
     {routes}
     </div>
     <div style={{ width:"100%"}}>

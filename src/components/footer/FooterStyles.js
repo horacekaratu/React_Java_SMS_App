@@ -12,6 +12,8 @@ display: inline;
 color: ${props => props.theme.colors.neutrals.white};
 
 
+
+
 `
 
 export const CopyWrite=styled.p`

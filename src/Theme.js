@@ -21,7 +21,14 @@ fonts:{
 
 
 // colors
-
+icons:{
+    sizes:{
+        medium:"16px",
+        large:"32px",
+        extraLarge:"96px"
+    }
+}
+,
 colors:{
     neutrals:{
         white:"#FFFFFF",
@@ -75,10 +82,18 @@ colors:{
 
     // },
   
-}
+},
 
 // sizes
+sizes:{
+    borderRadius:{
+        "small": "2px",
+        "normal": "5px",
+        "large":"8px",
+        "xlarge":"10px"
 
+    }
+}
 
 // margins
 
@@ -101,16 +116,21 @@ export const GlobalStyles=createGlobalStyle`
 
 html{
     font-size: 16px;
-    font-family: 'Roboto', 'sans-serif';
+    /* font-family: 'Roboto', 'sans-serif'; */
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body{
-    /* font-family: 'Roboto', 'sans-serif'; */
-}
+/* body{
+    font-family: 'Roboto', 'sans-serif';
+} */
 
 /* heading typogaphy */
 h1 , h2 , h3 , h4 , h5 , h6 {
-    color: ${props=>props.theme.colors.primary.base}
+    color: ${props=>props.theme.colors.neutrals.black}
 
 }
 h1{
@@ -158,9 +178,9 @@ h6{
 
 
 /* body typography */
-body{
-    font-family: 'Roboto', 'sans-serif';
-}
+/* body{
+    font-family: 'monospace',;
+} */
 
 legend{
     font-size: 1.125rem;

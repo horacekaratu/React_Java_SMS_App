@@ -48,3 +48,10 @@ remove much shaking of page on navigation. elements should be at same position i
 add interactiveness to the navbar
 add logout button/login.
 solve the issue where you can still continue after timeout unless you reload
+
+
+<!-- UI/UX CUSTOMIZATIONS -->
+Navbar
+1. Add interaction states.
+    --hover , pressed 
+    --active -- container component

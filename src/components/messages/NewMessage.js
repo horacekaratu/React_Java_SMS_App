@@ -4,18 +4,21 @@ import { ContactList } from "../contacts/Contacts"
 import { useState } from "react"
 import { CustomIcon } from "../home/Home"
 import { useTheme } from "styled-components"
+import { LargeFontAwesomeIconStateful } from "../styled/Buttons"
+import { LargeFontAwesomeIcon } from "../styled/Icons"
 
 export const NewMessage=({toggle, setToggle, handleSelectContact})=>{
     const theme=useTheme()
     return(
         <>
-        
-                    <FontAwesomeIcon color={
-                        toggle? theme.colors.primary.dark:theme.colors.primary.base
-                    } size="6x" data-testid="add-convo" icon={faPlus} 
-                onClick={()=>
-                setToggle(!toggle)}
-            />
+       {/* <LargeFontAwesomeIcon /> */}
+       <LargeFontAwesomeIconStateful  
+        icon={faPlus}
+        handler={()=>
+                setToggle(!toggle)} 
+
+                testid={"add-convo"}
+                />
            {toggle &&  <ContactList handleSelectContact={handleSelectContact}/> }
         </>
     )
