@@ -41,7 +41,6 @@ export const makeIconStatefulHoc = (Component) => {
     const [toggle, setToggle] = useState(false);
     const theme = useTheme();
     const handleClick = () => {
-      console.log("togging");
       setToggle(!toggle);
      props.handler()
     };

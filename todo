@@ -1,10 +1,5 @@
-rewrite the styles
-...hocs 
+add media queries for mobile friendliness
 
-Have a global styled components folder --for html el based styles that are
- reused outside a component family
- have a componet folder for a component family. one used within a specifi component.
- have a hoc file. for great customizaion
 
 
 
