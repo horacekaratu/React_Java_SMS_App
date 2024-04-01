@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { LoadingMessage } from "../styled/LoadingStateMessage";
-import { SideBarThreadsContainer } from "../styled/ListContainer";
-import { ThreadItem } from "../styled/ThreadItem";
-import { DisappearingButton } from "../styled/ErrorFallBack";
+import { SideBarListContainer } from "../styled/ListContainer";
+import { SideBarListItem } from "../styled/ListItem";
+import { DisappearingButton } from "../styled/Buttons";
 import { Input } from "../styled/Input";
-import { ThreadTitle } from "../messages/ThreadList";
 import { LargeFontAwesomeIconStateful } from "../styled/Buttons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -49,7 +47,7 @@ export const ContactList = ({
         testid={"add-contact"}
          />
       )}
-      <ThreadTitle>Contacts</ThreadTitle>
+      <h2>Contacts</h2>
 
       <Input
         type="text"
@@ -57,12 +55,12 @@ export const ContactList = ({
         value={search}
         onChange={(event) => setSearch(event.target.value)}
       />
-      {Loading && <LoadingMessage>Loading ...</LoadingMessage>}
-      <SideBarThreadsContainer>
+      {Loading && <div>Loading ...</div>}
+      <SideBarListContainer>
         {!Loading &&
           filteredContacts.map((contact) => {
             return (
-              <ThreadItem
+              <SideBarListItem
                 key={contact.id}
                 onClick={() => handleSelectContact(contact)}
               >
@@ -87,10 +85,10 @@ export const ContactList = ({
                     View Detail
                   </DisappearingButton>
                 </span>
-              </ThreadItem>
+              </SideBarListItem>
             );
           })}
-      </SideBarThreadsContainer>
+      </SideBarListContainer>
     </>
   );
 };

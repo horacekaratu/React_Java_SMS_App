@@ -1,7 +1,7 @@
 import { Input } from "../styled/Input";
-import { Button } from "../styled/ErrorFallBack";
+import { Button } from "../styled/Buttons";
 import {  InputContainer, InputGroup } from "../styled/FormElements";
-import {  FlexEnd } from "../styled/Buttons";
+import {  FlexEnd } from "../styled/Layout";
 import {  useState } from "react";
 
 

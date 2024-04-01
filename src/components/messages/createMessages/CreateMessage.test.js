@@ -1,8 +1,8 @@
 import { fireEvent, render as rtlRender, screen, waitFor } from "@testing-library/react";
 import { CreateMessage } from "./CreateMessage";
 import { ThemeProvider } from "styled-components";
-import { Theme } from "../../Theme";
-import { server } from "../../setupTests";
+import { Theme } from "../../../Theme";
+import { server } from "../../../setupTests";
 import { rest } from "msw";
 const render = (ui, options) => {
     return rtlRender(ui, {

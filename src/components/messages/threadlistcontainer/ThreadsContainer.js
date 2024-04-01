@@ -1,12 +1,12 @@
 // src/App.js
 import React, { useState} from "react";
-import {  ThreadList } from "../../components/messages/ThreadList";
+import {  ThreadList } from "../threadlist/ThreadList";
 import { ErrorBoundary } from "react-error-boundary";
-import { Conversation } from "../../components/messages/Conversation";
+import { Conversation } from "../conversation/Conversation";
 import { Outlet,  useNavigate, useRoutes } from "react-router-dom";
-import { ErrorFallback } from "../styled/ErrorFallBack";
-import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../../components/styled/SplitScreen";
-import { NewMessage } from "./NewMessage";
+import { ErrorFallback } from "../../styled/ErrorFallBack";
+import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../../styled/SplitScreen";
+import { NewMessage } from "../newmessage/NewMessage";
 
 
 

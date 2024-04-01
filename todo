@@ -1,4 +1,11 @@
 rewrite the styles
 ...hocs 
-rectify login and the data loss error
-solve contact .name error
+
+Have a global styled components folder --for html el based styles that are
+ reused outside a component family
+ have a componet folder for a component family. one used within a specifi component.
+ have a hoc file. for great customizaion
+
+
+
+rectify login and the data loss error on reload with passed param data-- to revisit

@@ -1,8 +1,8 @@
 import { Input } from "../styled/Input";
-import { Button } from "../styled/ErrorFallBack";
+import { Button } from "../styled/Buttons";
 import { useEffect, useState } from "react";
 import { CloseInputContainer, InputContainer, InputGroup } from "../styled/FormElements";
-import {  FlexEnd } from "../styled/Buttons";
+import {  FlexEnd } from "../styled/Layout";
 export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
   const [readOnly, setReadOnly] = useState(true);
   const [contactObject, setContactObject] = useState(contact);

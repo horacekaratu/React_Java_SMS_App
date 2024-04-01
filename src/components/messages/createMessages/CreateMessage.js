@@ -1,23 +1,18 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "../styled/ErrorFallBack";
+import { Button } from "../../styled/Buttons";
 import { faPaperPlane} from "@fortawesome/free-solid-svg-icons";
 import {  useEffect, useState } from "react";
-import { Input } from "../styled/Input";
+import { Input } from "../../styled/Input";
 import { styled } from "styled-components";
-
-export const InputMR1=styled(Input)`
+import {WhiteIcon} from "../../styled/Icons"
+const NewMessageInput=styled(Input)`
 margin-right: var(--base-point);
 `
-export const IconButton=styled(Button)`
+const NewMessageButton=styled(Button)`
   padding: calc(var(--base-point)*1.19) calc(var(--base-point)*2);
   position: absolute;
-  /* height: calc(var(--base-point)*3); */
 `;
 
-export const CustomIconWhite = styled(FontAwesomeIcon)`
-  color: ${(props) => props.theme.colors.neutrals.white};
 
-`;
 export const CreateMessage=({conversationid,sender})=>{
     const [message,setMessage]=useState({sender:null,message:"",conversationid:null})
     const [isError,setIsError]=useState(false)
@@ -62,7 +57,7 @@ export const CreateMessage=({conversationid,sender})=>{
         {isError && <p>{isError}</p>}
         
         <div>
-            <InputMR1  type="text" placeholder="Type Message" value={message.message}
+            <NewMessageInput  type="text" placeholder="Type Message" value={message.message}
 
                 onChange={(event)=>{
                     setIsError(false)
@@ -70,11 +65,11 @@ export const CreateMessage=({conversationid,sender})=>{
                     setMessage({...message,message:event.target.value})
                 }}
             />
-            <IconButton data-testid="send-button" onClick={sendMessageHandler}>
+            <NewMessageButton data-testid="send-button" onClick={sendMessageHandler}>
              <span>
-             <CustomIconWhite  icon={ faPaperPlane } />
+             <WhiteIcon  icon={ faPaperPlane } />
              </span>
-            </IconButton>
+            </NewMessageButton>
             </div>
         
 

@@ -1,15 +1,11 @@
-import { Outlet, useRoutes } from "react-router-dom";
-import ThreadsContainer from "./components/messages/ThreadsContainer";
+import {  useRoutes } from "react-router-dom";
+import ThreadsContainer from "./components/messages/threadlistcontainer/ThreadsContainer";
 import { ContactContainer } from "./components/contacts/ContactContainer";
 import { NavigationComponent } from "./components/navigation/Navigation";
-import { Login } from "./components/Auth/Login";
 import { Home } from "./components/home/Home";
 import { Footer } from "./components/footer/Footer";
-import { AuthContext } from "./components/Auth/AuthContext";
-import { useContext } from "react";
 export const App = () => {
  
-  const {login, logout}=useContext(AuthContext)
   
   const routes = useRoutes([
   

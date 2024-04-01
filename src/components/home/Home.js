@@ -1,52 +1,20 @@
 import { styled } from "styled-components";
-import { Button } from "../styled/ErrorFallBack";
+import { Button } from "../styled/Buttons";
 import { CenteredContent } from "../styled/Layout";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBoltLightning,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useMemo, useState } from "react";
 import { Features, GetStartedData, Testimonials } from "../../App";
-
+import {Card, CardContainer,  CardContentWithMargins, CardImage} from "../styled/Card"
+import { BlackIcon } from "../styled/Icons";
 const Lead=styled.p`
 font-size: 1.728rem;
     font-weight: 300;
     line-height: 2rem;
     margin-bottom: 1rem;
 `
-const CardContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: calc(var(--base-point) * 2);
-`;
-const Card = styled.div`
-display: flex;
-flex-direction: column;
-  position: relative;
-  width: 300px;
-  text-align: center;
-  border-radius: ${(prop) => prop.theme.sizes.borderRadius.normal};
-  border: 1px solid #ddd;
-  padding: 48px 24px 24px;
-  box-shadow: 0px 2px 4px ${(props) => props.theme.colors.primary.desaturated};
-`;
-const CardContent = styled.div`
-`;
-const CardContentWithMargins = styled(CardContent)`
-  margin-bottom: calc(var(--base-point) * 3);
-`;
-const CardImage = styled.div`
-  position: absolute;
-  top: -6%;
-  left: 50%;
-  transform: translateY(-6%);
-  transform: translateX(-50%);
-  img {
-    border-radius: 50%;
-    width: calc(var(--base-point) * 10);
-    height: calc(var(--base-point) * 10);
-  }
-`;
+
 
 const WitnessName = styled.p`
   font-weight: bold;
@@ -60,8 +28,6 @@ const FeatureContainer = styled.ul``;
 const Feature = styled.li`
   display: flex;
   gap: calc(var(--base-point) * 2);
-  /* width: 100%; */
-/* background-color: blue; */
   span {
     
     width: 400px;
@@ -76,9 +42,7 @@ const Feature = styled.li`
   }
 `;
 
-export const CustomIcon = styled(FontAwesomeIcon)`
-  color: ${(props) => props.theme.colors.neutrals.black};
-`;
+
 
 const FeatureText = styled.p`
   /* display: inline; */
@@ -101,8 +65,6 @@ useEffect(()=>{
  setGetStarted(memoizedGetStartedData)
  setFeatures(memoizedFeatures)
  setTestimonials(memoizedTestimonials)
-  // fetchFeatures()
-  // fetchTestimonials()
 },[memoizedFeatures, memoizedGetStartedData,memoizedTestimonials])
 
   return (
@@ -145,12 +107,13 @@ useEffect(()=>{
          {features?.map((feature,index)=>{
           return(
             <Feature key={index}>
-            <CustomIcon icon={faBoltLightning} />
+            <BlackIcon icon={faBoltLightning} />
             <span data-testid={`feature-icon-${index}`}>{feature[1].name}</span>
             <FeatureText data-testid="feature-message">
             {feature[1].message}
             </FeatureText>
           </Feature>
+          
           )
          })}
         </FeatureContainer>

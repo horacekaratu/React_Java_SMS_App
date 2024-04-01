@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 
 export const InputContainer=styled.div`
 display: flex;
-/* justify-content: space-between; */
 margin-bottom: var(--base-point);
 align-items: center;
 

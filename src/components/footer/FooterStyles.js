@@ -8,7 +8,6 @@ justify-content: space-evenly;
 `
 export const SocialMeadiaHandle=styled.li`
 display: inline;
-/* color: ${props=>props.theme.colors.primary.saturated}; */
 color: ${props => props.theme.colors.neutrals.white};
 
 

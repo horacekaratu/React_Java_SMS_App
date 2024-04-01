@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const BaseThreadItem = styled.li`
+export const ListItem = styled.li`
   /* box model styling--basic */
   display: flex;
   justify-content: space-between;
@@ -20,7 +20,7 @@ export const BaseThreadItem = styled.li`
   /* list speciific styling  */
   list-style-position: inside;
 `;
-export const ThreadItem = styled(BaseThreadItem)`
+export const SideBarListItem = styled(ListItem)`
 
 
   /* state css */

@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
-import { styled} from "styled-components";
-import { ThreadItem } from "../styled/ThreadItem";
-import { LoadingMessage } from "../styled/LoadingStateMessage";
-import { SideBarThreadsContainer } from "../styled/ListContainer";
-import { useAuth } from "../Auth/useAuth"
-import { Input } from "../styled/Input";
-
-
-export const ThreadTitle = styled.h2`
-`;
+import { SideBarListItem } from "../../styled/ListItem";
+import { SideBarListContainer } from "../../styled/ListContainer";
+import { useAuth } from "../../Auth/useAuth"
+import { Input } from "../../styled/Input";
 
 
 export const ThreadList = ({ handleOnClick }) => {
@@ -56,7 +50,7 @@ export const ThreadList = ({ handleOnClick }) => {
 
 
 
-      <ThreadTitle>Threads</ThreadTitle>
+      <h2>Threads</h2>
       <Input
         type="text"
         placeholder="Enter contact name"
@@ -64,18 +58,18 @@ export const ThreadList = ({ handleOnClick }) => {
         onChange={(event) => setSearch(event.target.value)}
       />
       {isLoading && (
-        <LoadingMessage>Loading ...</LoadingMessage>
+        <div>Loading ...</div>
       )}
       {!isLoading && (
         <>
        
-          <SideBarThreadsContainer>
+          <SideBarListContainer>
             {filteredMessages.map((msg, index) => (
-              <ThreadItem key={index} onClick={() => handleOnClick(msg.id)}>
+              <SideBarListItem key={index} onClick={() => handleOnClick(msg.id)}>
                 {msg.message}
-              </ThreadItem>
+              </SideBarListItem>
             ))}
-            </SideBarThreadsContainer>
+            </SideBarListContainer>
         </>
       )}
     </div>

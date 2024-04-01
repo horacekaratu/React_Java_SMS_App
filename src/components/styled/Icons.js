@@ -13,3 +13,11 @@ export const LargeFontAwesomeIcon = styled(FontAwesomeIcon)`
   
  
 `;
+export const WhiteIcon = styled(FontAwesomeIcon)`
+  color: ${(props) => props.theme.colors.neutrals.white};
+
+`;
+
+export const BlackIcon = styled(FontAwesomeIcon)`
+  color: ${(props) => props.theme.colors.neutrals.black};
+`;
