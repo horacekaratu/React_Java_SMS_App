@@ -30,6 +30,7 @@ const Feature = styled.li`
   flex-direction: row;
   @media (min-width: 768px) {
     flex-direction: row;
+   
   }
   gap: calc(var(--base-point) * 2);
   span {  

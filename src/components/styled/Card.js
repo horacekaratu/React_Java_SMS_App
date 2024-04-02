@@ -10,7 +10,12 @@ export const CardContainer = styled.div`
   gap: var(--base-point);
   @media (min-width: 768px){
     flex-direction: row;
-
+ gap: calc(var(--base-point) * 2);
+  }
+   @media (min-width: 1025px){
+    flex-direction: row;
+ gap: calc(var(--base-point) * 2);
+ justify-content: center;
   }
 `;
 export const Card = styled.div`
@@ -24,6 +29,9 @@ flex-direction: column;
   border: 1px solid #ddd;
   padding: 48px 24px 24px;
   box-shadow: 0px 2px 4px ${(props) => props.theme.colors.primary.desaturated};
+  @media (min-width: 1025px) {
+    width: 200px;
+  }
 `;
 export const CardContent = styled.div`
 `;
