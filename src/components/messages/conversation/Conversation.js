@@ -10,14 +10,19 @@ import { DisappearingButton } from "../../styled/Buttons";
 import { CreateMessage } from "../createMessages/CreateMessage";
 
 const ConversationListItem = styled(ListItem)`
+padding-left: 0;
+margin-left: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 40%;
+  max-width: 90%;
+  width: 90%;
   background-color: ${(props) => props.theme.colors.lightNeutral.light};
   color: ${(props) => props.theme.colors.darkNeutral.dark};
   box-shadow: 1px 2px 5px ${(props) => props.theme.colors.neutrals.lightGrey};
-
+  @media (min-width: 768px) {
+  max-width: 40%;
+}
   &:hover {
     button {
       visibility: visible;
@@ -27,7 +32,10 @@ const ConversationListItem = styled(ListItem)`
   ${(props) =>
     props.$incomming &&
     css`
+    @media (min-width: 768px) {
       margin-left: ${(props) => (props.$incomming ? "auto" : "50%")};
+    }
+     
 
       background-color: ${(props) => props.theme.colors.neutrals.lightGrey};
       /* color: ${(props) => props.theme.colors.neutrals.darkGrey};  */
@@ -45,8 +53,15 @@ const ConversationTitle = styled(TitleBox)`
 `;
 
 const ConversationListContainer = styled.ul`
+margin: 0px;
+padding: 8px;
+@media (min-width: 768px){
+  margin: 8px;
+  padding: 8px 16px;
+}
   max-height: 54vh;
   overflow-x: auto;
+  
   --u: 10px;
   --c1: #f7f5f5;
   --c2: #f0eded;

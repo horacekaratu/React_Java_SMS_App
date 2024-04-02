@@ -5,12 +5,20 @@ export const CardContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin-top: calc(var(--base-point) * 2);
+  flex-direction: column;
+  width: inherit;
+  gap: var(--base-point);
+  @media (min-width: 768px){
+    flex-direction: row;
+
+  }
 `;
 export const Card = styled.div`
 display: flex;
 flex-direction: column;
   position: relative;
-  width: 300px;
+  width: inherit;
+  
   text-align: center;
   border-radius: ${(prop) => prop.theme.sizes.borderRadius.normal};
   border: 1px solid #ddd;

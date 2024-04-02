@@ -3,7 +3,10 @@ import { SideBarListItem } from "../../styled/ListItem";
 import { SideBarListContainer } from "../../styled/ListContainer";
 import { useAuth } from "../../Auth/useAuth"
 import { Input } from "../../styled/Input";
+import { styled } from "styled-components";
+const SubTitle=styled.h2`
 
+`;
 
 export const ThreadList = ({ handleOnClick }) => {
   const [messages, setMessages] = useState();
@@ -50,7 +53,7 @@ export const ThreadList = ({ handleOnClick }) => {
 
 
 
-      <h2>Threads</h2>
+      <SubTitle>Threads</SubTitle>
       <Input
         type="text"
         placeholder="Enter contact name"

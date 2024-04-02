@@ -12,8 +12,12 @@ import { AuthContextProvider } from "./components/Auth/AuthContext";
 import { Login } from "./components/Auth/Login";
 
 const Container = styled.div`
-  margin: 0 80px;
+ margin: 0 16px;
+  
+  @media (min-width: 768px) {
+    margin: 0 80px;
   padding: 0px;
+  }
 
 `;
 export const worker = setupWorker(...handlers);

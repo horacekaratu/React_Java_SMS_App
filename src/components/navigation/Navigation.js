@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink as NavLinkDefault } from "react-router-dom";
 import { styled, css } from "styled-components";
 import { makeComponentTogglable } from "../styled/Layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
+const CloseIcon=styled(FontAwesomeIcon)`
+position: absolute;
+left: var(--base-point);
+top: var(--base-point);
+`
 const HumburgerIcon=styled.div`
+
 text-align: end;
 margin-bottom:calc(var(--base-point) * 2);
 cursor: pointer;
@@ -79,12 +85,30 @@ const NavLink = styled(NavLinkDefault)`
   text-decoration: none;
 `;
 export const NavigationComponent = () => {
-  const [on,setOn]=useState(true)
+  const [on,setOn]=useState(false)
   const handler=()=>{
     setOn(!on)
    
   }
   const [active, setActive] = useState(1);
+
+useEffect(()=>{
+const handleResize=()=>{
+  if(window.innerWidth>=768){
+    setOn(true)
+  }else{
+    setOn(false)
+  }
+
+}
+
+window.addEventListener("resize",handleResize)
+
+return ()=>{
+  window.removeEventListener("resize",handleResize)
+}
+},[])
+
   const handleOnClick = (event, id) => {
     setActive(id);
     const navlink = event.currentTarget.querySelector("a");
@@ -126,11 +150,12 @@ export const NavigationComponent = () => {
             <NavLink to="/contacts">Contacts</NavLink>
           </NavListItem>
           {/* <Li><NavLink to="/logout">Logout</NavLink></Li>  */}
+
         </StyleLessList>
       </NavWrapper>
       :
       <>  
-          <FontAwesomeIcon icon={faBars} onClick={handler}/>
+          <CloseIcon  icon={faBars} onClick={handler}/>
           </>
     }
     </>

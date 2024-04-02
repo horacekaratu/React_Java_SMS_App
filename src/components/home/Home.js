@@ -27,9 +27,12 @@ const WitnessTitle = styled.p`
 const FeatureContainer = styled.ul``;
 const Feature = styled.li`
   display: flex;
+  flex-direction: row;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
   gap: calc(var(--base-point) * 2);
-  span {
-    
+  span {  
     width: 400px;
     min-width: 0;
     /* background-color: red; */
@@ -61,7 +64,6 @@ export const Home = () => {
   const memoizedFeatures=useMemo(()=>Object.entries(Features),[])
   const memoizedTestimonials=useMemo(()=>Object.entries(Testimonials),[])
 useEffect(()=>{
-  console.log("home reload")
  setGetStarted(memoizedGetStartedData)
  setFeatures(memoizedFeatures)
  setTestimonials(memoizedTestimonials)
@@ -69,7 +71,8 @@ useEffect(()=>{
 
   return (
     <>
-    <Section>
+    <Section >
+    
       <CenteredContent>
         <h1>Online Messages</h1>
         <Lead data-testid="sub-heading">
