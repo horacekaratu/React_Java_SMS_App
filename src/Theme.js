@@ -243,7 +243,11 @@ figcaption{
   }
 
 
-`
+.plus{
+    width: 100%;
+    text-align: end;
+    margin-bottom: var(--base-point);
+}`
 
 
 

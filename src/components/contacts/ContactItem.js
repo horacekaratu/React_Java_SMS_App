@@ -1,4 +1,4 @@
-import { Input } from "../styled/Input";
+import { Input, InputLabel } from "../styled/Input";
 import { Button } from "../styled/Buttons";
 import { useEffect, useState } from "react";
 import { CloseInputContainer, InputContainer, InputGroup } from "../styled/FormElements";
@@ -14,7 +14,7 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
     <>
      <InputGroup>
       <InputContainer>
-        <label htmlFor="name">Name : </label>
+        <InputLabel htmlFor="name">Name : </InputLabel >
         <Input
           value={contactObject?.name}
           readOnly={readOnly}
@@ -24,7 +24,7 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
         />
       </InputContainer>
       <InputContainer>
-        <label htmlFor="number">Number : </label>
+        <InputLabel htmlFor="number">Number : </InputLabel >
         <Input
           value={contactObject?.number}
           readOnly={readOnly}
@@ -37,7 +37,7 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
         />
       </InputContainer>
       <InputContainer>
-        <label htmlFor="country">Country : </label>
+        <InputLabel  htmlFor="country">Country : </InputLabel >
         <Input
           value={contactObject?.country}
           readOnly={readOnly}
@@ -50,18 +50,25 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
         />
       </InputContainer>
 </InputGroup>
-       <CloseInputContainer>
-       <label htmlFor="Edit">Edit</label>
+<InputGroup>
+       <InputContainer type={"checkbox"}>
+       <InputLabel htmlFor="Edit">Edit</InputLabel>
 
-<input 
+<Input
   type="checkbox"
   id="Edit"
   onChange={() => {
     setReadOnly(!readOnly);
   }}
 />
-</CloseInputContainer>
-      <FlexEnd style={{maxWidth:"405px"}}>
+</InputContainer>
+</InputGroup>
+      {/* <FlexEnd> */}
+      <InputGroup>
+      <InputContainer>
+       
+
+       
         <Button
           onClick={() => {
             handleUpdate(contactObject);
@@ -70,14 +77,17 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
           Update
         </Button>
 
-        <Button $error
+        <Button style={{marginRight:0}} $error
           onClick={() => {
             handleDelete(contactObject.id);
           }}
         >
           Delete
         </Button>
-      </FlexEnd>
+        
+      </InputContainer>
+      </InputGroup>
+      {/* </FlexEnd> */}
     </>
   );
 };

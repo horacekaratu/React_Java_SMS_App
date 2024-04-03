@@ -5,6 +5,8 @@ import {ContactItem} from "./ContactItem"
 import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../styled/SplitScreen"
 import { useAuth } from "../Auth/useAuth"
 import { NewContact } from "./NewContact"
+import { LargeFontAwesomeIconStateful } from "../styled/Buttons"
+import { faPlus } from "@fortawesome/free-solid-svg-icons"
 const handleOnDelete=(id)=>{
     console.log(id)
 }
@@ -54,8 +56,11 @@ const handleSaveContact=(contact)=>{
     }
 
     return(<>
+    <h2>Contacts</h2>
      <SplitScreenContainer>
-      <LeftScreenContainer>
+     
+      <LeftScreenContainer >
+     
 <ContactList  
 isMainComponent={true}
         handleSelectContact={handleSelectContact}
@@ -64,8 +69,18 @@ isMainComponent={true}
       handleAddContact={handleAddContact}
          />
          </LeftScreenContainer>
-      <RightScreenContainer>
+      <RightScreenContainer >
       
+      
+      <div className="plus">
+        <LargeFontAwesomeIconStateful 
+        
+         icon={faPlus}
+        handler={handleAddContact}
+        testid={"add-contact"}
+         /></div>
+         
+    
       {toggleNewContact && <NewContact  handleAddContact={handleSaveContact}/> } 
       {!toggleNewContact && <>{routes} <Outlet/></> } 
       </RightScreenContainer>

@@ -5,6 +5,7 @@ import { DisappearingButton } from "../styled/Buttons";
 import { Input } from "../styled/Input";
 import { LargeFontAwesomeIconStateful } from "../styled/Buttons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { LayoutGrid } from "../styled/Layout";
 
 export const ContactList = ({
   isMainComponent,
@@ -38,25 +39,19 @@ export const ContactList = ({
   });
 
   return (
-    <>
     
-      {isMainComponent && (
-        <LargeFontAwesomeIconStateful 
-         icon={faPlus}
-        handler={handleAddContact}
-        testid={"add-contact"}
-         />
-      )}
-      <h2>Contacts</h2>
+    <LayoutGrid>
+    <h5 style={{gridArea:"explainer"}}>Search by contact name:</h5>
+    
 
-      <Input
+      <Input style={{gridArea:"search"}}
         type="text"
         placeholder="Enter contact name"
         value={search}
         onChange={(event) => setSearch(event.target.value)}
       />
       {Loading && <div>Loading ...</div>}
-      <SideBarListContainer>
+      <SideBarListContainer style={{gridArea:"list"}}>
         {!Loading &&
           filteredContacts.map((contact) => {
             return (
@@ -89,6 +84,6 @@ export const ContactList = ({
             );
           })}
       </SideBarListContainer>
-    </>
+    </LayoutGrid>
   );
 };
