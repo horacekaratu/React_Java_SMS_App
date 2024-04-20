@@ -1,6 +1,7 @@
-add media queries for mobile friendliness
-
-
-
-
-rectify login and the data loss error on reload with passed param data-- to revisit
+contacts ui/ux
+choose the buttons in both contacts and new contacts to align the same
+decide whether the list is s primary component or should i =t have grey color.
+standify the lable alignment
+Order: make everythig flow smoothly
+Standify the styles again.
+Copy paste to threads

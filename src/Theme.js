@@ -247,7 +247,23 @@ figcaption{
     width: 100%;
     text-align: end;
     margin-bottom: var(--base-point);
-}`
+}
+.title{
+
+
+ @media (min-width: 768px)  {
+    text-align: center;
+ }
+}
+
+.open{
+    display: block;
+}
+.hide{
+    display: none;
+}
+`
+
 
 
 

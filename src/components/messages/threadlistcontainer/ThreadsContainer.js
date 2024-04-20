@@ -7,7 +7,8 @@ import { Outlet,  useNavigate, useRoutes } from "react-router-dom";
 import { ErrorFallback } from "../../styled/ErrorFallBack";
 import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from "../../styled/SplitScreen";
 import { NewMessage } from "../newmessage/NewMessage";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComment, faComments } from "@fortawesome/free-solid-svg-icons";
 
 
 export const handleOnDelete=(id)=>{
@@ -19,7 +20,12 @@ export const handleOnShowDetail=(message)=>{
   console.log(message)
 }
 function ThreadsContainer(props) {
+  const [isOpen, setOpen]=useState(true)
   const navigate=useNavigate()
+  const toggleIsOpen=()=>{
+    setOpen(!isOpen)
+    console.log("changed")
+  }
   const handleSelectContact=(contact)=>{
     console.log(contact.id)
     // make redux http req to get the messages of the contact
@@ -62,8 +68,18 @@ const routes=useRoutes([
     <>
     
     <SplitScreenContainer>
-    <LeftScreenContainer>
+    <LeftScreenContainer  className={isOpen?"display":"hide"}>
+<div style={{
+  position:"absolute",
+  right:"8px",
+  top:"8px",
+  fontSize:"24px"
+}}
 
+onClick={()=>{
+toggleIsOpen()
+}}
+>X</div>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
        <NewMessage toggle={selectedThread} setToggle={setSelectedThread} 
        handleSelectContact={handleSelectContact}/>
@@ -73,7 +89,17 @@ const routes=useRoutes([
       </LeftScreenContainer>
       <RightScreenContainer>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-      
+      <div 
+
+onClick={()=>{
+toggleIsOpen()
+}}
+><FontAwesomeIcon className={isOpen?"hide":"display"} style={{position:"absolute",
+  left:"8px",
+  top:"32px",
+  fontSize:"24px"
+}} icon={faComments} /></div>
+
       <Outlet/>
       {routes}
       </ErrorBoundary>

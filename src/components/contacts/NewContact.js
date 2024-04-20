@@ -57,7 +57,7 @@ const [error, setError]=useState(false)
          </InputContainer>
    </InputGroup>
          <FlexEnd style={{maxWidth:"405px"}}>
-           <Button
+           <Button style={{marginRight:0}}
              onClick={() => {
                 const result=handleAddContact(contactObject);
                 if(!result===""){

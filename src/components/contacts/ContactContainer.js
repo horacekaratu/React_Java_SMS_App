@@ -56,7 +56,7 @@ const handleSaveContact=(contact)=>{
     }
 
     return(<>
-    <h2>Contacts</h2>
+    <h2 className="title">Contacts</h2>
      <SplitScreenContainer>
      
       <LeftScreenContainer >
