@@ -46,6 +46,8 @@ const ConversationTitle = styled(TitleBox)`
   border-bottom: 3px solid ${(props) => props.theme.colors.neutrals.darkGrey};
   padding: calc(var(--base-point) * 1);
   margin-bottom: calc(var(--base-point) * 1);
+  /* margin-left: "32px"; */
+
 
   h3 {
     color: ${(props) => props.theme.colors.neutrals.black};

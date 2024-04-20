@@ -1,65 +1,58 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 export const googleFontsUrl =
-"https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap";
+  "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap";
 
-export const Theme={
+export const Theme = {
+  // spacing
 
-    // spacing
-    
-// Typography
+  // Typography
 
-// fonts 
+  // fonts
 
-fonts:{
-    heading:'Roboto, sans-serif',
-    body:'Montserrat, sans-serif'
-},
+  fonts: {
+    heading: "Roboto, sans-serif",
+    body: "Montserrat, sans-serif",
+  },
 
-// heading
+  // heading
 
-// type styles
+  // type styles
 
-
-// colors
-icons:{
-    sizes:{
-        medium:"16px",
-        large:"32px",
-        extraLarge:"96px"
-    }
-}
-,
-colors:{
-    neutrals:{
-        white:"#FFFFFF",
-        lightGrey:"#CCCCCC",
-        mediumGrey:"#999999",
-        darkGrey:"#333333",
-        black:"#000000",
+  // colors
+  icons: {
+    sizes: {
+      medium: "16px",
+      large: "32px",
+      extraLarge: "96px",
+    },
+  },
+  colors: {
+    neutrals: {
+      white: "#FFFFFF",
+      lightGrey: "#CCCCCC",
+      mediumGrey: "#999999",
+      darkGrey: "#333333",
+      black: "#000000",
     },
     contextual: {
-        error: "#B33B3B",
-        success: "#3DB33B",
-        warning: "#B1B33B",
-        info:'#3D3BB3',
+      error: "#B33B3B",
+      success: "#3DB33B",
+      warning: "#B1B33B",
+      info: "#3D3BB3",
     },
     lightNeutral: {
-        light: "#FFFFFF",
-
-
+      light: "#FFFFFF",
     },
     darkNeutral: {
-        dark: "#000000",
-
-
+      dark: "#000000",
     },
     primary: {
-        background: "#C3C3EB",
-        saturated: "#1D1BB3",
-        light: "#4E4CE6",
-        base:'#3D3BB3',
-        dark: "#232266",
-        desaturated:"#6C6BB3"
+      background: "#C3C3EB",
+      saturated: "#1D1BB3",
+      light: "#4E4CE6",
+      base: "#3D3BB3",
+      dark: "#232266",
+      desaturated: "#6C6BB3",
     },
     // secondary: {
     //     lightest: "blue",
@@ -79,32 +72,25 @@ colors:{
     //     darker: "blue",
     //     darkest: "blue"
 
-
     // },
-  
-},
+  },
 
-// sizes
-sizes:{
-    borderRadius:{
-        "small": "2px",
-        "normal": "5px",
-        "large":"8px",
-        "xlarge":"10px"
+  // sizes
+  sizes: {
+    borderRadius: {
+      small: "2px",
+      normal: "5px",
+      large: "8px",
+      xlarge: "10px",
+    },
+  },
 
-    }
-}
+  // margins
 
-// margins
-
-
-// paddings
-
-
-
-}
+  // paddings
+};
 // Global  Styles
-export const GlobalStyles=createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 
 
 
@@ -130,7 +116,7 @@ html{
 
 /* heading typogaphy */
 h1 , h2 , h3 , h4 , h5 , h6 {
-    color: ${props=>props.theme.colors.neutrals.black}
+    color: ${(props) => props.theme.colors.neutrals.black}
 
 }
 h1{
@@ -236,11 +222,27 @@ figcaption{
     background: ${(props) => props.theme.colors.primary.saturated};
   }
   ::-webkit-scrollbar-thumb:active {
-    background-color: ${(props) => props.theme.colors.primary.dark}; /* Color of the scrollbar thumb when active (clicked) */
+    background-color: ${(props) =>
+      props.theme.colors.primary
+        .dark}; /* Color of the scrollbar thumb when active (clicked) */
   }
   ::-webkit-scrollbar-track {
     border-radius: 60px; /* Border radius of the scrollbar track */
   }
+  .threads{
+position:absolute;
+z-index: 0;
+  left: 8px;
+  top:32px;
+  font-size:18px;
+  @media (min-width: 768px ) ,(max-width:1023px) {
+  top:64px;
+  left:8px;
+  }
+  @media (min-width: 1024px ) {
+ display: none;
+  }
+}
 
 
 .plus{
@@ -256,16 +258,32 @@ figcaption{
  }
 }
 
+
+.show{
+    position:absolute;
+  right:8px;
+  top:0px;
+  transform: translatey(-50px);
+  font-size:24px;
+  font-weight: 700;
+    display: block;
+    
+    @media (min-width: 767px),(max-width:1023px) {
+        top: 64px;
+    }
+    @media (min-width: 1024px) {
+       display: none;
+    }
+}
+.dont-show{
+    display: none;
+}
 .open{
     display: block;
 }
 .hide{
     display: none;
 }
-`
 
 
-
-
-
-
+`;

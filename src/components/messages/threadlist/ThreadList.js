@@ -16,7 +16,6 @@ export const ThreadList = ({ handleOnClick }) => {
   useAuth(window.location.pathname)
 
   useEffect(() => {
-    console.log("Threadlist reload")
     const fetchData = async () => {
       await fetch("https://api.example.com/users")
         .then((res) => {

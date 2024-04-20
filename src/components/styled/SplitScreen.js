@@ -17,11 +17,18 @@ width: 80%;
 height: 100%;
 left: 0;
 top: 20px;
-background-color: ${props=>props.theme.colors.primary.base} ;
+background-color: rgb(214, 210, 210);
+z-index: 1;
+/* background-color: ${props=>props.theme.colors.primary.base} ; */
 order: 2;
+@media (min-width: 480px) {
+   
+   width: 60%;
+   order: inherit;
+}
 @media (min-width: 768px) {
    
-    width: 40%;
+    width: 30%;
     order: inherit;
 }
 @media (min-width: 1024px) {

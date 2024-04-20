@@ -25,13 +25,14 @@ props=>{
 
 export const LayoutGrid=styled.div`
 width: 100%;
+
 /* background-color: red; */
 justify-content: center;
-display: grid;
+/* display: grid;
 grid-template-rows: auto ;
 grid-template-columns: auto;
 grid-template-areas: 
 "explainer explainer"
 "search search"
-"list list";
+"list list"; */
 `;

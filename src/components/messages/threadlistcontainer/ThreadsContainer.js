@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import {  ThreadList } from "../threadlist/ThreadList";
 import { ErrorBoundary } from "react-error-boundary";
 import { Conversation } from "../conversation/Conversation";
@@ -26,6 +26,12 @@ function ThreadsContainer(props) {
     setOpen(!isOpen)
     console.log("changed")
   }
+  // useEffect(()=>{
+  //  const w=window.innerWidth
+  //  if(w=>768){
+  //   setOpen(false)
+  //  }
+  // },[])
   const handleSelectContact=(contact)=>{
     console.log(contact.id)
     // make redux http req to get the messages of the contact
@@ -69,13 +75,8 @@ const routes=useRoutes([
     
     <SplitScreenContainer>
     <LeftScreenContainer  className={isOpen?"display":"hide"}>
-<div style={{
-  position:"absolute",
-  right:"8px",
-  top:"8px",
-  fontSize:"24px"
-}}
-
+<div 
+className={isOpen?"show":"dont-show"}
 onClick={()=>{
 toggleIsOpen()
 }}
@@ -94,11 +95,7 @@ toggleIsOpen()
 onClick={()=>{
 toggleIsOpen()
 }}
-><FontAwesomeIcon className={isOpen?"hide":"display"} style={{position:"absolute",
-  left:"8px",
-  top:"32px",
-  fontSize:"24px"
-}} icon={faComments} /></div>
+><FontAwesomeIcon className={isOpen?"hide":"display threads"}   icon={faComments} /></div>
 
       <Outlet/>
       {routes}

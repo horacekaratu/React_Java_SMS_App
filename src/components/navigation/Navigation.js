@@ -5,26 +5,27 @@ import { makeComponentTogglable } from "../styled/Layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const CloseIcon=styled(FontAwesomeIcon)`
-position: absolute;
-left: var(--base-point);
-top: var(--base-point);
-`
-const HumburgerIcon=styled.div`
-
-text-align: end;
-margin-bottom:calc(var(--base-point) * 2);
-cursor: pointer;
-@media (min-width:768px) {
-display: none;
-}
+const CloseIcon = styled(FontAwesomeIcon)`
+  position: absolute;
+  left: var(--base-point);
+  top: var(--base-point);
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+const HumburgerIcon = styled.div`
+  text-align: end;
+  margin-bottom: calc(var(--base-point) * 2);
+  cursor: pointer;
+  @media (min-width: 767px) {
+    display: none;
+  }
 `;
 
-const StatefulHumbergerMenu=
-makeComponentTogglable(HumburgerIcon)
-  
- 
+const StatefulHumbergerMenu = makeComponentTogglable(HumburgerIcon);
+
 const NavWrapper = styled.nav`
+  z-index: 1;
   background-color: ${(prop) => prop.theme.colors.primary.base};
   padding: calc(var(--base-point) * 2);
   position: absolute;
@@ -34,22 +35,16 @@ const NavWrapper = styled.nav`
   height: 100vh;
   /* display: none; */
   margin-bottom: calc(var(--base-point) * 3);
-  @media (min-width:768px) {
+  @media (min-width: 768px) {
     position: relative;
-  max-width: none;
-  left: 0;
-  top: 0;
-  height: inherit;
-  /* display: none; */
-  
+    max-width: none;
+    height: inherit;
   }
-
 `;
 const StyleLessList = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
-  
 `;
 const NavListItem = styled.li`
   display: inline-block;
@@ -74,10 +69,9 @@ const NavListItem = styled.li`
         color: ${(prop) => prop.theme.colors.neutrals.black};
       }
     `}
-    width:90%;
+  width:90%;
   @media (min-width: 768px) {
     display: inline;
-    
   }
 `;
 const NavLink = styled(NavLinkDefault)`
@@ -85,29 +79,27 @@ const NavLink = styled(NavLinkDefault)`
   text-decoration: none;
 `;
 export const NavigationComponent = () => {
-  const [on,setOn]=useState(false)
-  const handler=()=>{
-    setOn(!on)
-   
-  }
+  const [on, setOn] = useState(true);
+  const handler = () => {
+    setOn(!on);
+  };
   const [active, setActive] = useState(1);
 
-useEffect(()=>{
-const handleResize=()=>{
-  if(window.innerWidth>=768){
-    setOn(true)
-  }else{
-    setOn(false)
-  }
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setOn(!true);
+      } else {
+        setOn(false);
+      }
+    };
 
-}
+    window.addEventListener("resize", handleResize);
 
-window.addEventListener("resize",handleResize)
-
-return ()=>{
-  window.removeEventListener("resize",handleResize)
-}
-},[])
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleOnClick = (event, id) => {
     setActive(id);
@@ -117,47 +109,46 @@ return ()=>{
     }
   };
   return (
-   
-    
     <>
-    {on ?
-      <NavWrapper onClick={()=>console.log("tro")}>
-        <StyleLessList>
-        <HumburgerIcon  onClick={handler}><FontAwesomeIcon icon={faTimes}/></HumburgerIcon>
-          <NavListItem
-            active={active == 1}
-            onClick={(event) => {
-              handleOnClick(event, 1);
-            }}
-          >
-            <NavLink to="/home">Home</NavLink>
-          </NavListItem>
-          <NavListItem
-            active={active == 2}
-            onClick={(event) => {
-              handleOnClick(event, 2);
-            }}
-          >
-            {" "}
-            <NavLink to="/threads">Messages</NavLink>
-          </NavListItem>
-          <NavListItem
-            active={active == 3}
-            onClick={(event) => {
-              handleOnClick(event, 3);
-            }}
-          >
-            <NavLink to="/contacts">Contacts</NavLink>
-          </NavListItem>
-          {/* <Li><NavLink to="/logout">Logout</NavLink></Li>  */}
-
-        </StyleLessList>
-      </NavWrapper>
-      :
-      <>  
-          <CloseIcon  icon={faBars} onClick={handler}/>
-          </>
-    }
+      {on ? (
+        <NavWrapper >
+          <StyleLessList>
+            <HumburgerIcon onClick={handler}>
+              <FontAwesomeIcon icon={faTimes} />
+            </HumburgerIcon>
+            <NavListItem
+              active={active == 1}
+              onClick={(event) => {
+                handleOnClick(event, 1);
+              }}
+            >
+              <NavLink to="/home">Home</NavLink>
+            </NavListItem>
+            <NavListItem
+              active={active == 2}
+              onClick={(event) => {
+                handleOnClick(event, 2);
+              }}
+            >
+              {" "}
+              <NavLink to="/threads">Messages</NavLink>
+            </NavListItem>
+            <NavListItem
+              active={active == 3}
+              onClick={(event) => {
+                handleOnClick(event, 3);
+              }}
+            >
+              <NavLink to="/contacts">Contacts</NavLink>
+            </NavListItem>
+            {/* <Li><NavLink to="/logout">Logout</NavLink></Li>  */}
+          </StyleLessList>
+        </NavWrapper>
+      ) : (
+        <>
+          <CloseIcon icon={faBars} onClick={handler} />
+        </>
+      )}
     </>
   );
 };
