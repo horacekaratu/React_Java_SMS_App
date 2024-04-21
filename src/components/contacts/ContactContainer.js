@@ -56,7 +56,7 @@ const handleSaveContact=(contact)=>{
     }
 
     return(<>
-    <h2 className="title">Contacts</h2>
+
      <SplitScreenContainer>
      
       <LeftScreenContainer >
@@ -72,13 +72,7 @@ isMainComponent={true}
       <RightScreenContainer >
       
       
-      <div className="plus">
-        <LargeFontAwesomeIconStateful 
-        
-         icon={faPlus}
-        handler={handleAddContact}
-        testid={"add-contact"}
-         /></div>
+   
          
     
       {toggleNewContact && <NewContact  handleAddContact={handleSaveContact}/> } 

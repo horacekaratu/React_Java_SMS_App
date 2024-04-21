@@ -41,17 +41,25 @@ export const ContactList = ({
   return (
     
     <LayoutGrid>
-    <h5 style={{gridArea:"explainer"}}>Search by contact name:</h5>
+       <div >
+        <LargeFontAwesomeIconStateful 
+        
+         icon={faPlus}
+        handler={handleAddContact}
+        testid={"add-contact"}
+         /></div>
+             <h2 >Contacts</h2>
+    <h5 >Search by contact name:</h5>
     
 
-      <Input style={{gridArea:"search"}}
+      <Input 
         type="text"
         placeholder="Enter contact name"
         value={search}
         onChange={(event) => setSearch(event.target.value)}
       />
       {Loading && <div>Loading ...</div>}
-      <SideBarListContainer style={{gridArea:"list"}}>
+      <SideBarListContainer >
         {!Loading &&
           filteredContacts.map((contact) => {
             return (
