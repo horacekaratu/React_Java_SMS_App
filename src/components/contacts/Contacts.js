@@ -13,11 +13,16 @@ export const ContactList = ({
   onShowDetailHandler,
   handleSelectContact,
   handleAddContact,
+  isOpen,
+  toggleIsOpen
+  
 }) => {
+
   const [contacts, setContacts] = useState();
   const [search, setSearch] = useState("");
   const [Loading, setLoading] = useState(true);
   const [ setError] = useState();
+
   useEffect(() => {
     console.log("contact list reload");
     fetch("https://api.example.com/contacts")
@@ -40,7 +45,13 @@ export const ContactList = ({
 
   return (
     
-    <LayoutGrid>
+    <LayoutGrid  >
+    <div 
+className={isOpen?"show":"dont-show"}
+onClick={()=>{
+toggleIsOpen()
+}}
+>X</div>
        <div >
         <LargeFontAwesomeIconStateful 
         

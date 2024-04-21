@@ -6,7 +6,8 @@ import { LeftScreenContainer, RightScreenContainer, SplitScreenContainer } from 
 import { useAuth } from "../Auth/useAuth"
 import { NewContact } from "./NewContact"
 import { LargeFontAwesomeIconStateful } from "../styled/Buttons"
-import { faPlus } from "@fortawesome/free-solid-svg-icons"
+import { faComments, faPlus } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 const handleOnDelete=(id)=>{
     console.log(id)
 }
@@ -26,7 +27,12 @@ export const ContactContainer=()=>{
     console.log("ContactCOntainer reload")
     // const {isLoggedIn}=useContext(AuthContext)
     useAuth(window.location.pathname)
+    const [isOpen, setOpen]=useState(true)
     const navigate=useNavigate()
+    const toggleIsOpen=()=>{
+        setOpen(!isOpen)
+        console.log("changed")
+      }
     
     const [selectedContact, setSelectedContact]=useState()
 const routes=useRoutes([
@@ -59,23 +65,32 @@ const handleSaveContact=(contact)=>{
 
      <SplitScreenContainer>
      
-      <LeftScreenContainer >
-     
+      <LeftScreenContainer  className={isOpen?"display":"hide"} >
+    
 <ContactList  
+isOpen={isOpen} toggleIsOpen={toggleIsOpen}
 isMainComponent={true}
         handleSelectContact={handleSelectContact}
         onDeleteHandler={handleOnDelete} 
         onShowDetailHandler={handleOnShowDetail}
       handleAddContact={handleAddContact}
+     
+      
+
          />
          </LeftScreenContainer>
       <RightScreenContainer >
       
       
    
-         
+      <div 
+
+onClick={()=>{
+toggleIsOpen()
+}}
+><FontAwesomeIcon className={isOpen?"hide":"display threads"}   icon={faComments} /></div>
     
-      {toggleNewContact && <NewContact  handleAddContact={handleSaveContact}/> } 
+      {toggleNewContact &&  <NewContact  handleAddContact={handleSaveContact}/> } 
       {!toggleNewContact && <>{routes} <Outlet/></> } 
       </RightScreenContainer>
       </SplitScreenContainer>

@@ -19,7 +19,6 @@ left: 0;
 top: 20px;
 background-color: rgb(214, 210, 210);
 z-index: 1;
-/* background-color: ${props=>props.theme.colors.primary.base} ; */
 order: 2;
 @media (min-width: 480px) {
    

@@ -13,7 +13,9 @@ const [error, setError]=useState(false)
         country:""
     });
 
-    return( <>
+    return( <div style={{
+      marginLeft:"16px"
+    }}>
     {error && <p>{error}</p>}
         <InputGroup>
          <InputContainer>
@@ -72,5 +74,5 @@ const [error, setError]=useState(false)
    
            
          </FlexEnd>
-       </>)
+       </div>)
 }

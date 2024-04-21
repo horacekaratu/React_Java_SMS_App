@@ -11,7 +11,9 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
     setContactObject(contact)
   },[contact])
   return (
-    <>
+    <div style={{
+      marginLeft:"16px"
+    }}>
      <InputGroup>
       <InputContainer>
         <InputLabel htmlFor="name">Name : </InputLabel >
@@ -88,6 +90,6 @@ export const ContactItem = ({ contact, handleUpdate, handleDelete }) => {
       </InputContainer>
       </InputGroup>
       {/* </FlexEnd> */}
-    </>
+    </div>
   );
 };
